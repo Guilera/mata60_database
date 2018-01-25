@@ -1,9 +1,9 @@
-CREATE DATABASE turismo;
 DROP DATABASE turismo;
+CREATE DATABASE turismo;
 
 USE turismo;
 CREATE TABLE pessoas (
-	pessoa_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	pessoa_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 );
 
 CREATE TABLE clientes (
@@ -12,7 +12,7 @@ CREATE TABLE clientes (
 	data_nasc DATE NOT NULL,
 	pessoa_id INT NOT NULL,
 
-	FOREIGN KEY (pessoa_id) REFERENCES pessoa(pessoa_id)
+	FOREIGN KEY (pessoa_id) REFERENCES pessoas(pessoa_id)
 );
 
 CREATE TABLE anunciantes (
@@ -23,12 +23,12 @@ CREATE TABLE anunciantes (
 	telefone VARCHAR(255) NOT NULL,
 	pessoa_id INT NOT NULL,
 
-	FOREIGN KEY (pessoa_id) REFERENCES pessoa(pessoa_id)
+	FOREIGN KEY (pessoa_id) REFERENCES pessoas(pessoa_id)
 );
 
 CREATE TABLE ufs (
 	uf_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nome VARCHAR(255) NOT NULL,
+	nome VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE visitas (
@@ -41,7 +41,7 @@ CREATE TABLE visitas (
 	nome VARCHAR(255) NOT NULL,
 	uf_id INT NOT NULL,
 
-   FOREIGN KEY (uf_id) REFERENCES uf(uf_id)
+   FOREIGN KEY (uf_id) REFERENCES ufs(uf_id)
 );
 
 CREATE TABLE cidades (
@@ -49,7 +49,7 @@ CREATE TABLE cidades (
 	nome VARCHAR(255) NOT NULL,
 	uf_id INT NOT NULL,
 
-   FOREIGN KEY (uf_id) REFERENCES uf(uf_id)
+   FOREIGN KEY (uf_id) REFERENCES ufs(uf_id)
 );
 
 CREATE TABLE pontos_turisticos (
@@ -61,7 +61,7 @@ CREATE TABLE pontos_turisticos (
 	bairro VARCHAR(255) NOT NULL,
 	cidade_id INT NOT NULL,
 	
-	FOREIGN KEY (cidade_id) REFERENCES cidade(cidade_id)
+	FOREIGN KEY (cidade_id) REFERENCES cidades(cidade_id)
 );
 
 CREATE TABLE hospedagens (
@@ -76,8 +76,8 @@ CREATE TABLE hospedagens (
 	pessoa_id INT NOT NULL,
 	cidade_id INT NOT NULL,
 
-	FOREIGN KEY (pessoa_id) REFERENCES pessoa(pessoa_id),
-	FOREIGN KEY (cidade_id) REFERENCES cidade(cidade_id)
+	FOREIGN KEY (pessoa_id) REFERENCES pessoas(pessoa_id),
+	FOREIGN KEY (cidade_id) REFERENCES cidades(cidade_id)
 );
 
 CREATE TABLE eventos (
@@ -93,8 +93,8 @@ CREATE TABLE eventos (
 	pessoa_id INT NOT NULL,
 	cidade_id INT NOT NULL,
 
-	FOREIGN KEY (pessoa_id) REFERENCES pessoa(pessoa_id),
-	FOREIGN KEY (cidade_id) REFERENCES cidade(cidade_id)
+	FOREIGN KEY (pessoa_id) REFERENCES pessoas(pessoa_id),
+	FOREIGN KEY (cidade_id) REFERENCES cidades(cidade_id)
 );
 
 CREATE TABLE comentarios (
@@ -106,8 +106,8 @@ CREATE TABLE comentarios (
 	ponto_turistico_id INT NOT NULL,
 	hospedagem_id INT NOT NULL,
 
-	FOREIGN KEY (pessoa_id) REFERENCES pessoa(pessoa_id),
-	FOREIGN KEY (evento_id) REFERENCES evento(evento_id),
-	FOREIGN KEY (ponto_turistico_id) REFERENCES pontoTuristico(ponto_turistico_id),
-	FOREIGN KEY (hospedagem_id) REFERENCES hospedagem(hospedagem_id)
+	FOREIGN KEY (pessoa_id) REFERENCES pessoas(pessoa_id),
+	FOREIGN KEY (evento_id) REFERENCES eventos(evento_id),
+	FOREIGN KEY (ponto_turistico_id) REFERENCES pontos_turisticos(ponto_turistico_id),
+	FOREIGN KEY (hospedagem_id) REFERENCES hospedagens(hospedagem_id)
 );
