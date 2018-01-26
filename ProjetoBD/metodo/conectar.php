@@ -2,7 +2,7 @@
 	
 	if (isset($_POST["acao"])) {
 		if ($_POST["acao"]=="inserir-cliente") {
-			inserir_cliente();
+			inserir_cliente2();
 		}
 		if ($_POST["acao"]=="alterar-cliente") {
 			alterar_cliente();
@@ -31,28 +31,22 @@
 		voltarClientes();
 	}
 
-	// Nao funcionando
-	// function inserir_cliente2(){
-	// 	$banco = abrirBanco();
-	// 	$sql = "INSERT INTO pessoas values ()";
-	// 	$banco->query($sql);
-	// 	//$sql = "SELECT LAST_INSERT_ID()";
-	// 	$resultado = mysqli_insert_id();
-	// 	//$resultado = $banco->query($sql);
-	// 	$sql = "INSERT INTO clientes (nome_completo, pais, data_nasc, pessoa_id)"
-	// 			. " VALUES ('{$_POST["nome_completo"]}','{$_POST["pais"]}','{$_POST["data_nasc"]}', $resultado)";
-	//	$sql = "INSERT INTO clientes (nome_completo, pais, data_nasc, pessoa_id)"
-	// 			. " VALUES ('{$_POST["nome_completo"]}','{$_POST["pais"]}','{$_POST["data_nasc"]}',".$resultado.")";
-	// 	$banco->query($sql);
-	// 	$banco->close();
-	// 	voltarIndex();
-	// }
+ 	function inserir_cliente2(){
+	 	$banco = abrirBanco();
+	 	$sql = "INSERT INTO pessoas values ()";
+	 	$banco->query($sql);
+	 	$sql = "INSERT INTO clientes (nome_completo, pais, data_nasc, pessoa_id)"
+	 			. " VALUES ('{$_POST["nome_completo"]}','{$_POST["pais"]}','{$_POST["data_nasc"]}', LAST_INSERT_ID())";
+	 	$banco->query($sql);
+	 	$banco->close();
+	 	voltarClientes();
+	 }
 
 	function alterar_cliente(){
 		$banco = abrirBanco();
 		$sql = "UPDATE clientes SET nome_completo='{$_POST["nome_completo"]}',"
 				." pais='{$_POST["pais"]}', data_nasc='{$_POST["data_nasc"]}'"
-				." WHERE cliente_id='{$_POST["cliente_id"]}'";
+				." WHERE pessoa_id='{$_POST["pessoa_id"]}'";
 		$banco->query($sql);
 		$banco->close();
 		voltarClientes();
@@ -123,7 +117,7 @@
 
 	function excluir_cliente(){
 		$banco = abrirBanco();
-		$sql = "DELETE FROM clientes WHERE cliente_id='{$_POST["cliente_id"]}'";
+		$sql = "DELETE FROM clientes WHERE pessoa_id='{$_POST["pessoa_id"]}'";
 		$banco->query($sql);
 		$banco->close();
 		voltarClientes();
@@ -151,9 +145,9 @@
 		return $grupo;
 	}
 
-	function selectIdCliente($cliente_id){
+	function selectIdCliente($pessoa_id){
 		$banco = abrirBanco();
-		$sql = "SELECT * FROM clientes WHERE cliente_id=".$cliente_id;
+		$sql = "SELECT * FROM clientes WHERE pessoa_id=".$pessoa_id;
 		$resultado = $banco->query($sql);
 		$banco->close();
 		$pessoa = mysqli_fetch_assoc($resultado);

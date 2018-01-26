@@ -20,7 +20,7 @@
     <div class="box">
       <form name="inserir" action="metodo/inserir.php" method="POST">
         <input type="hidden" name="acao" value="inserir" />
-        <input type="submit" value="Adicionar Pessoa" name="inserir" /> 
+        <input type="submit" value="Adicionar Anunciante" name="inserir" /> 
      </form>
     </div>
     <div class="box">

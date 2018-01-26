@@ -61,13 +61,13 @@
           <td><?=formatoData($clientes["data_nasc"])?></td>
           <td>
             <form name="alterar-cliente" action="../metodo/cliente/alterar-cliente.php" method="POST">
-              <input type="hidden" name="cliente_id" value="<?=$clientes["cliente_id"]?>" />
+              <input type="hidden" name="pessoa_id" value="<?=$clientes["pessoa_id"]?>" />
               <input type="submit" value="Editar" name="editar" />  
             </form>
           </td>
           <td>
             <form name="excluir-cliente" action="../metodo/conectar.php" method="POST">
-              <input type="hidden" name="cliente_id" value="<?=$clientes["cliente_id"]?>" />
+              <input type="hidden" name="pessoa_id" value="<?=$clientes["pessoa_id"]?>" />
               <input type="hidden" name="acao" value="excluir-cliente" />
               <input type="submit" value="Excluir" name="excluir" />  
             </form>

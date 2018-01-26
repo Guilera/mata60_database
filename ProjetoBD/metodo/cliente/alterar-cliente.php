@@ -1,6 +1,6 @@
 <?php
 	include("../conectar.php");
-	$clientes = selectIdCliente($_POST["cliente_id"]);
+	$clientes = selectIdCliente($_POST["pessoa_id"]);
 	//var_dump($pessoa);
 ?>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td><input type="hidden" name="acao" value="alterar-cliente" />
-				<input type="hidden" name="cliente_id" value="<?=$clientes["cliente_id"]?>" />
+				<input type="hidden" name="pessoa_id" value="<?=$clientes["pessoa_id"]?>" />
 				</td>
 				<td><input type="submit" value="Atualizar" name="Atualizar" /></td>
 			</tr>
