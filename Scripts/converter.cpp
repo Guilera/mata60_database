@@ -3,7 +3,7 @@
 
 using namespace std;
 
-map<string, string> month_to_number;
+map<string, string> month_to_number, month_english;
 
 void clientes(){
 	string name, country;
@@ -17,6 +17,18 @@ void clientes(){
 	}
 	cout << "INSERT INTO usuarios VALUES ();" << endl;
 	cout << "INSERT INTO clientes VALUES ('Keylor Navas', 'Costa Rica', '1986-12-15', LAST_INSERT_ID())";
+}
+
+void ufs(){
+	string s;
+	set<string> ufs;
+	while(getline(cin, s))
+		if(s[0] != '\n' && s != "" && s[0] != 'O')
+			ufs.insert(s);
+	
+	cout << "INSERT INTO ufs VALUES" << endl;
+	for(auto &u : ufs)
+		cout << "('" << u << "')," << endl;
 }
 
 int main(){
@@ -34,6 +46,19 @@ int main(){
 	month_to_number["November"] = "11";
 	month_to_number["December"] = "12";
 
-	clientes();
+	month_english["Janeiro"] = "January";
+	month_english["Fevereiro"] = "February";
+	month_english["Março"] = "March";
+	month_english["Abril"] = "April";
+	month_english["Maio"] = "May";
+	month_english["Junho"] = "June";
+	month_english["Julho"] = "July";
+	month_english["Agosto"] = "August";
+	month_english["Setembro"] = "September";
+	month_english["Outubro"] = "October"; 
+	month_english["Novembro"] = "November";
+	month_english["Dezembro"] = "December";
+
+	ufs();
 return 0;
 }
