@@ -19,20 +19,26 @@ void clientes(){
 	cout << "INSERT INTO clientes VALUES ('Keylor Navas', 'Costa Rica', '1986-12-15', LAST_INSERT_ID())";
 }
 
-void ufs(){
-	string s;
-	set<string> ufs;
-	while(getline(cin, s))
-		if(s[0] != '\n' && s != "" && s[0] != 'O')
-			ufs.insert(s);
+void anunciantes(){
+	string nome, cnpj, servico, homepage, telefone;
+	int n = 1;
+	while(getline(cin, nome, ','), nome[0] != '\n' && nome != ""){
+		cin >> cnpj >> servico >> homepage >> telefone;
+		cin.ignore();
+		cout << "INSERT INTO usuarios(username, senha) VALUES ('emp" << n++ << "', '123');" << endl;
+		cout << "INSERT INTO anunciantes VALUES (";
+		cout << "'" << nome << "'";
+		cout << ", '" << cnpj << "'";
+		cout << ", '" << servico << "'";
+		cout << ", '" << homepage << "'";
+		cout << ", '" << telefone << "'";
+		cout << ", LAST_INSERT_ID());" << endl;
+	}
+}	
+
 	
-	cout << "INSERT INTO ufs VALUES" << endl;
-	for(auto &u : ufs)
-		cout << "('" << u << "')," << endl;
-}
-
 int main(){
-
+	
 	month_to_number["January"] = "01";
 	month_to_number["February"] = "02";
 	month_to_number["March"] = "03";
@@ -59,6 +65,6 @@ int main(){
 	month_english["Novembro"] = "November";
 	month_english["Dezembro"] = "December";
 
-	ufs();
+	anunciantes();
 return 0;
 }
