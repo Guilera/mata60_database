@@ -111,7 +111,8 @@ CREATE TABLE comentarios_evento (
 	
 	FOREIGN KEY (comentario_id) REFERENCES comentarios(comentario_id),
 	FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-	FOREIGN KEY (evento_id) REFERENCES eventos(evento_id)	
+	FOREIGN KEY (evento_id) REFERENCES eventos(evento_id),
+	UNIQUE(comentario_id, usuario_id, evento_id)
 );
 
 CREATE TABLE comentarios_pturistico (
@@ -121,7 +122,8 @@ CREATE TABLE comentarios_pturistico (
 	
 	FOREIGN KEY (comentario_id) REFERENCES comentarios(comentario_id),
 	FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-	FOREIGN KEY (ponto_turistico_id) REFERENCES pontos_turisticos(ponto_turistico_id)
+	FOREIGN KEY (ponto_turistico_id) REFERENCES pontos_turisticos(ponto_turistico_id),
+	UNIQUE(comentario_id, usuario_id, ponto_turistico_id)
 );
 
 CREATE TABLE comentarios_hospedagem (
@@ -131,7 +133,8 @@ CREATE TABLE comentarios_hospedagem (
 	
 	FOREIGN KEY (comentario_id) REFERENCES comentarios(comentario_id),
 	FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-	FOREIGN KEY (hospedagem_id) REFERENCES hospedagens(hospedagem_id)
+	FOREIGN KEY (hospedagem_id) REFERENCES hospedagens(hospedagem_id),
+	UNIQUE(comentario_id, usuario_id, hospedagem_id)
 );
 
 

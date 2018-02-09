@@ -18,3 +18,5 @@ INSERT INTO usuarios(username, senha) VALUES ('emp9', '123');
 INSERT INTO anunciantes VALUES ('Aldeia', '28.483.918/1929-38', 'Hotel', 'www.aldeia.com.br', '+55(97)3429-5345', LAST_INSERT_ID());
 INSERT INTO usuarios(username, senha) VALUES ('emp10', '123');
 INSERT INTO anunciantes VALUES ('Coutry Club Hotel', '34.791.882/3342-53', 'Hotel', 'www.countryclubhotel.com.br', '+55(61)2323-3266', LAST_INSERT_ID());
+INSERT INTO usuarios(username, senha) VALUES ('emp11', '123');
+INSERT INTO anunciantes VALUES ('Monopoly', '99.999.999/9999-99', 'Hotel', 'www.monopoly.com.br', '+55(99)9999-9999', LAST_INSERT_ID());
