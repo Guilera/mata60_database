@@ -1,6 +1,6 @@
-DROP DATABASE turismo;
-CREATE DATABASE turismo;
-USE turismo;
+DROP DATABASE turismo2;
+CREATE DATABASE turismo2;
+USE turismo2;
 
 CREATE TABLE usuarios (
 	usuario_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -53,7 +53,7 @@ CREATE TABLE cidades (
    FOREIGN KEY (uf_id) REFERENCES ufs(uf_id)
 );
 
-UPDATE TABLE pontos_turisticos (
+CREATE TABLE pontos_turisticos (
 	ponto_turistico_id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL,
 	tipo VARCHAR(255) NOT NULL,
