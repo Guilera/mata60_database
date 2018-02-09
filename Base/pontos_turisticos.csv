@@ -1,0 +1,76 @@
+nome,tipo,descricao,logradouro,bairro,cidade_id
+Palacio Rio Branco,Landmark,\N,Rua Benjamin Constant,Centro,1
+Novo Mercado Velho,Shop,shopping of handicraft goods,Av. Epaminondas Jacome,Centro,1
+Parque Ambiental Chico Mendes,Zoo,Some of the local species,AC-040,Estrada,1
+Horto Floresta,Park,A nice park,Rua Antônio da Rocha Viana,Vila Ivonete,1
+Fortaleza de São José de Macapá,Landmark,A colonial fortress,Rua Cândido Mendes,Centro,2
+Marco Zero,Landmark,The equator (0 degrees latitude) line,Rod. Juscelino Kubitschek,Bairro do Zerão,2
+Centro de Pesquisas Museológicas Museu Sacaca,Museum,Art is life,Avenida Feliciano Coelho,Centro,2
+Encontro das Águas,Nature,Negro and Solimoes rivers encounter,\N,\N,3
+Museu do Seringal Vila Paraíso,Museum,\N,Igarapé São João,Tarumã Mirim,3
+Arquipélago de Anavilhanas,Nature,\N,Parque Nacional de Anavilhanas,Bella Vista,3
+Igreja de Nosso Senhor do Bonfim,Landmark,City's patron saint church,Praça Senhor do Bonfim,Bonfim,4
+Igreja de São Francisco,Landmark,Golden church,Largo de São Francisco,Centro Histórico,4
+Casa do Rio Vermelho,Museum,The life of Jorge Amado and Zelia Gattai,Rua Alagoinhas,Rio Vermelho,4
+Praia Farol da Barra,Beach,One of the most famous beach of the city,Avenida Oceania,Barra,4
+Pelourinho,Landmark,Historic houses,\N,Centro Histórico,4
+Projeto Tamar,Zoo,Sea Turtle's preservation project,Avenida Farol Garcia D’Ávila,Praia do Forte,6
+Castelo da Torre de Garcia D'Avila,Landmark,Old Castle,Colina Tatuapara,Praia do Forte,6
+Parque Marinho de Recife de Fora,Nature,Coral Reef,\N,\N,7
+Rio Caraiva,Nature,Beatiful river,\N,\N,7
+Praia do Espelho,Beach,Translucid water,\N,\N,7
+Rua do Mucugê,Entertainment,Most famous street of the region,Rua do Mucugê,Centro,7
+Museu da Cachaça,Museum,The history of the national liquor know as Cachaça,CE-065,\N,8
+Morro Branco,Beach,\N,Beberibe,Beberibe,8
+Palácio Itamaraty,Landmark,Gorvernamental building,Esplanada dos Ministérios,Eixo Monumental,9
+Catedral Metropolitana,Landmark,Church,Esplanada dos Ministérios,Eixo Monumental,9
+Santuário Dom Bosco,Landmark,Blue church,Quadra Seps,Lote B,9
+Museu de Cultura Dom Bosco,Museum,Archeology,Avenida Afonso Pena,Cidade Jardim,10
+Parque dos Poderes,Park,\N,\N,\N,10
+Parque das Nações Indígenas,Park,\N,Altos da Av. Afonso Pena,\N,10
+Memorial Minas Gerais Vale,Museum,The experience of Minas Gerais's tradition between the XVIII and XXI century,Praça da Liberdade,\N,11
+Mercado Central de Belo Horizonte,Shop,Food and handicraft,Avenida Augusto de Lima,\N,11
+Mercado Distrital do Cruzeiro,Food,Farmers Market,Rua Ouro Fino,Cruzeiro,11
+Basílica de Nossa Senhora de Nazaré,Landmark,Another church,Praca Justo Chermont,\N,12
+Estação das Docas,Food,Lots of restaurants,Av. Boulevard Castilhos,Campina,12
+Mangal das Garças,Park,Eco park,Pass. Carneiro da Rocha,Cidade Velha,12
+Usina Hidrelétrica Itaipu,Landmark,The world's largest hydroelectric power station,Avenida Tancredo Neves,\N,13
+Cataratas do Iguaçu,Nature,The largest waterfalls system in the world,Rodovia Br-469 Km 1-8,\N,13
+Parque das Aves,Zoo,A bird's zoo with more than 1320 birds and 143 different species,Rodovia Br-469 Km 1-8,\N,13
+Parque Tanguá,Park,\N,Rua Oswaldo Maciel,Pilarzinho,14
+Museu Oscar Niemeyer,Museum,Niemeyer was a key figure in the development of modern architecture,Rua Marechal Hermes,Centro Cívico,14
+Jardim Botânico de Curitiba,Park,Botanic garden,Rua Engenheiro Ostoja Roguski,Jardim Botânico,14
+Oficina Cerâmica Francisco Brennand,Museum,Pottery art,Propriedade Santos Cosme e Damião,Várzea,15
+Piscinas Naturais de Porto de Galinhas,Beach,Natural pool,\N,Porto de Galinhas,16
+Praia da Azeda,Beach,The best of Buzius,\N,\N,17
+Centro Histórico de Paraty,Landmark,Historic city,\N,\N,18
+Cristo Redentor,Landmark,Giant Stone Jesus,Parque Nacional da Tijuca,Cosme Velho,19
+Praia do Forte,Beach,\N,Rua do Contorno,\N,20
+Ilha Botinas,Beach,A island,\N,\N,21
+Dunas de Genipabu,Nature,A radical and beautiful trip at the dunes,\N,\N,22
+Lago Negro,Park,\N,Rua Renner,\N,23
+Praia Guarita,Beach,\N,\N,\N,24
+Museu de Ciências e Tecnologia da PUCRS,Museum,Cience and tecnology,Avenida Ipiranga,\N,25
+Praça Das Águas,Landmark,\N,Avenida Capitao Ene Garcez,Centro,26
+Parque Unipraias Camboriú,Park,Beaches and fun park,Avenida Atlântica,Barra Sul,27
+Santo Antônio de Lisboa,Landmark,Historic neighborhood,SC-401,Caminho dos Açores,28
+Praia de Bombinhas,Beach,\N,\N,Litoral Norte,29
+Praia da Enseada,Beach,\N,Av. Miguel Estéfano,Jardim Tejereba,30
+Praia do Canto do Forte,Beach,\N,\N,\N,31
+Catedral Metropolitana De São Sebastião,Landmark,Church,\N,Praça Das Bandeiras,32
+Museu do Café,Museum,The history of coffee in Brazil,Rua XV de Novembro,\N,33
+Projeto Tamar,Zoo,Sea Turtle's preservation project,Rua Antônio Athanasio da Silva,\N,34
+Praia de Maresias,Beach,Ideal for surfers,\N,\N,35
+Amantikir,Park,Art and plants,Rodovia Campos do Jordão,Gavião Gonzaga,36
+Santuário Nacional Nossa Senhora Aparecida,Landmark,Church,Avenida Dr. Júlio Prestes,\N,37
+Parque do Taquaral (Parque Portugal),Park,\N,Avenida Machado de Assis,\N,38
+Avenida Paulista,Shop,Famous market street,Av. Paulista,Jardins,39
+Praia de Ipanema,Beach,Famous Beach,\N,Ipanema,19
+Praia de Copacabana,Beach,Famous Beach,\N,Copacabana,19
+Praia da Barra da Tijuca,Beach,\N,\N,Barra da Tijuca,19
+Praia da Barra de Guaratiba,Beach,\N,\N,Barra de Guaratiba,19
+Praia da Barra de Guaratiba,Beach,\N,\N,Barra de Guaratiba,19
+Praia da Macumba,Beach,\N,\N,Recreio,19
+Praia da Reserva,Beach,\N,\N,Recreio,19
+Prainha,Beach,\N,\N,Grumari,19
+Praia de Grumari,Beach,\N,\N,Grumari,19

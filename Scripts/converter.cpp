@@ -5,18 +5,28 @@ using namespace std;
 
 map<string, string> month_to_number, month_english;
 
+string string_format(string str){
+	int found = str.find_last_of(' ');
+	string s = str.substr(found + 1);
+	
+	s[0] = tolower(s[0]);
+	
+	return s;
+}
+
 void clientes(){
-	string name, country;
+	string name, country, user;
 	int day, year, n;
 	string month;
+	int found;
 	while(getline(cin, name, ','), name[0] != '\n' && name != ""){		
-		cin >> day >> month >> year >> country;
+		cin >> day >> month >> year;
 		cin.ignore();
-		cout << "INSERT INTO usuarios VALUES ();" << endl;
-		cout << "INSERT INTO clientes VALUES ('" << name << "', '" << country << "', '" << year << "-" << month_to_number[month] << "-" << day << "', LAST_INSERT_ID());" << endl;
+		getline(cin, country, '\n');
+		user = string_format(name);
+		cout << "INSERT INTO usuarios(username, senha) VALUES ('" << user << "', '123');" << endl;
+		cout << "INSERT INTO clientes VALUES ('" << name << "', '" << country << "', '" << year << "-" << month_to_number[month] << "-" << day 		<< "', LAST_INSERT_ID());" << endl;
 	}
-	cout << "INSERT INTO usuarios VALUES ();" << endl;
-	cout << "INSERT INTO clientes VALUES ('Keylor Navas', 'Costa Rica', '1986-12-15', LAST_INSERT_ID())";
 }
 
 void anunciantes(){
@@ -35,7 +45,6 @@ void anunciantes(){
 		cout << ", LAST_INSERT_ID());" << endl;
 	}
 }	
-
 	
 int main(){
 	
@@ -65,6 +74,7 @@ int main(){
 	month_english["Novembro"] = "November";
 	month_english["Dezembro"] = "December";
 
-	anunciantes();
-return 0;
+	clientes();
+
+	return 0;
 }
