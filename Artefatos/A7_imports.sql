@@ -12,3 +12,6 @@ source ../Scripts/comentarios_pturistico.sql;
 
 /* LOAD DE INSERÇÃO DE HOSPEDAGENS */
 source ../Scripts/hospedagens.sql;
+
+/* LOAD DE INSERÇÃO DE EVENTOS */
+source ../Scripts/eventos.sql;

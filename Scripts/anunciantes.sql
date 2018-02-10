@@ -3,7 +3,7 @@ INSERT INTO anunciantes VALUES ('BoaTur', '81.773.245/5647-85', 'Turism', 'www.b
 INSERT INTO usuarios(username, senha) VALUES ('emp2', '123');
 INSERT INTO anunciantes VALUES ('Shows TOP!', '93.030.093/0482-04', 'Show', 'www.showstop.com.br', '+55(85)9342-0850', LAST_INSERT_ID());
 INSERT INTO usuarios(username, senha) VALUES ('emp3', '123');
-INSERT INTO anunciantes VALUES ('Carranga  Vrum Vrum', '52.932.073/0284-74', 'Expo', 'www.carrangavrumvrum.com.br', '+55(11)3837-3029', LAST_INSERT_ID());
+INSERT INTO anunciantes VALUES ('Carranga Vrum Vrum', '52.932.073/0284-74', 'Expo', 'www.carrangavrumvrum.com.br', '+55(11)3837-3029', LAST_INSERT_ID());
 INSERT INTO usuarios(username, senha) VALUES ('emp4', '123');
 INSERT INTO anunciantes VALUES ('Livres Livros', '65.123.121/3257-00', 'Expo', 'www.livreslivros.com.br', '+55(71)3331-1451', LAST_INSERT_ID());
 INSERT INTO usuarios(username, senha) VALUES ('emp5', '123');
