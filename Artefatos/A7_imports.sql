@@ -9,3 +9,6 @@ source ../Scripts/anunciantes.sql;
 
 /* SCRIPT DE INSERÇÃO DE COMENTARIOS DE PONTOS TURISTICOS */
 source ../Scripts/comentarios_pturistico.sql;
+
+/* LOAD DE INSERÇÃO DE HOSPEDAGENS */
+source ../Scripts/hospedagens.sql;
