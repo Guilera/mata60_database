@@ -1,11 +1,12 @@
-DROP DATABASE turismo2;
-CREATE DATABASE turismo2;
-USE turismo2;
+DROP DATABASE turismo;
+CREATE DATABASE turismo;
+USE turismo;
 
 CREATE TABLE usuarios (
 	usuario_id INT PRIMARY KEY AUTO_INCREMENT,
 	username VARCHAR(255) NOT NULL UNIQUE,
-	senha VARCHAR(12) NOT NULL
+	senha VARCHAR(12) NOT NULL,
+	tipo INT NOT NULL
 );
 
 CREATE TABLE clientes (
@@ -136,28 +137,3 @@ CREATE TABLE comentarios_hospedagem (
 	FOREIGN KEY (hospedagem_id) REFERENCES hospedagens(hospedagem_id),
 	UNIQUE(comentario_id, usuario_id, hospedagem_id)
 );
-
-
-/* ALGUMAS OPÇÕES DE VIEWS
-
-CREATE VIEW zodiaco AS SELECT nome_completo, DATE_FORMAT(data_nasc, '%d/%m/%Y') AS nascimento, pais,  
-	CASE
-		WHEN (MONTH(data_nasc)=1 AND DAYOFMONTH(data_nasc)>=20) OR (MONTH(data_nasc) = 2 AND DAYOFMONTH(data_nasc)<=18) THEN 'Aquario'
-		WHEN (MONTH(data_nasc)=2 AND DAYOFMONTH(data_nasc)>=19) OR (MONTH(data_nasc)=3 AND DAYOFMONTH(data_nasc)<=20) THEN 'Peixes'
-		WHEN (MONTH(data_nasc)=3 AND DAYOFMONTH(data_nasc)>=21) OR (MONTH(data_nasc)=4 AND DAYOFMONTH(data_nasc)<=19) THEN 'Aries'
-		WHEN (MONTH(data_nasc)=4 AND DAYOFMONTH(data_nasc)>=20) OR (MONTH(data_nasc)=5 AND DAYOFMONTH(data_nasc)<=20) THEN 'Touro'
-		WHEN (MONTH(data_nasc)=5 AND DAYOFMONTH(data_nasc)>=21) OR (MONTH(data_nasc)=6 AND DAYOFMONTH(data_nasc)<=20) THEN 'Gemeos'
-		WHEN (MONTH(data_nasc)=6 AND DAYOFMONTH(data_nasc)>=21) OR (MONTH(data_nasc)=7 AND DAYOFMONTH(data_nasc)<=22) THEN 'Cancer'
-		WHEN (MONTH(data_nasc)=7 AND DAYOFMONTH(data_nasc)>=23) OR (MONTH(data_nasc)=8 AND DAYOFMONTH(data_nasc)<=22) THEN 'Leao'
-		WHEN (MONTH(data_nasc)=8 AND DAYOFMONTH(data_nasc)>=23) OR (MONTH(data_nasc)=9 AND DAYOFMONTH(data_nasc)<=22) THEN 'Virgem'
-		WHEN (MONTH(data_nasc)=9 AND DAYOFMONTH(data_nasc)>=23) OR (MONTH(data_nasc)=10 AND DAYOFMONTH(data_nasc)<=22) THEN 'Libra'
-		WHEN (MONTH(data_nasc)=10 AND DAYOFMONTH(data_nasc)>=23) OR (MONTH(data_nasc)=11 AND DAYOFMONTH(data_nasc)<=21) THEN 'Escorpiao'
-		WHEN (MONTH(data_nasc)=11 AND DAYOFMONTH(data_nasc)>=22) OR (MONTH(data_nasc)=12 AND DAYOFMONTH(data_nasc)<=21) THEN 'Sagitario'
-		WHEN (MONTH(data_nasc)=12 AND DAYOFMONTH(data_nasc)>=22) OR (MONTH(data_nasc)=1 AND DAYOFMONTH(data_nasc)<=19) THEN 'Capricornio'
-	END AS signo
-FROM clientes;
-
-CREATE VIEW pontos_full AS SELECT ufs.nome AS UF, cidades.nome AS CIDADE, pontos_turisticos.nome AS ATRAÇÃO, tipo AS TIPO
-FROM pontos_turisticos 
-JOIN cidades ON pontos_turisticos.cidade_id = cidades.cidade_id 
-JOIN ufs ON cidades.uf_id = ufs.uf_id; */

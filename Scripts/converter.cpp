@@ -24,7 +24,7 @@ void clientes(){
 		cin.ignore();
 		getline(cin, country, '\n');
 		user = string_format(name);
-		cout << "INSERT INTO usuarios(username, senha) VALUES ('" << user << "', '123');" << endl;
+		cout << "INSERT INTO usuarios(username, senha, tipo) VALUES ('" << user << "', '123', 1);" << endl;
 		cout << "INSERT INTO clientes VALUES ('" << name << "', '" << country << "', '" << year << "-" << month_to_number[month] << "-" << day 		<< "', LAST_INSERT_ID());" << endl;
 	}
 }
@@ -35,7 +35,7 @@ void anunciantes(){
 	while(getline(cin, nome, ','), nome[0] != '\n' && nome != ""){
 		cin >> cnpj >> servico >> homepage >> telefone;
 		cin.ignore();
-		cout << "INSERT INTO usuarios(username, senha) VALUES ('emp" << n++ << "', '123');" << endl;
+		cout << "INSERT INTO usuarios(username, senha, tipo) VALUES ('emp" << n++ << "', '123', 2);" << endl;
 		cout << "INSERT INTO anunciantes VALUES (";
 		cout << "'" << nome << "'";
 		cout << ", '" << cnpj << "'";
