@@ -47,3 +47,16 @@ FROM visitas
 GROUP BY pais
 HAVING qnt = (SELECT MAX(qnt) FROM (SELECT SUM(quantidade) AS qnt from visitas GROUP BY pais) AS s1)
 	 OR qnt = (SELECT MIN(qnt) FROM (SELECT SUM(quantidade) AS qnt from visitas GROUP BY pais) AS s2);
+	 
+/* SELECIONA TODOS OS USUARIOS INATIVOS (AQUELES QUE NUNCA FIZERAM UM COMENTÁRIO) */
+SELECT nome_completo, comentario_id 
+FROM clientes 
+LEFT JOIN (
+	SELECT usuario_id, comentario_id FROM comentarios_pturistico 
+	UNION 
+	SELECT usuario_id, comentario_id FROM comentarios_evento 
+	UNION 
+	SELECT usuario_id,comentario_id FROM comentarios_hospedagem) AS c
+USING (usuario_id) 
+LEFT JOIN comentarios USING (comentario_id) 
+WHERE comentario_id IS NULL;
