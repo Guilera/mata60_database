@@ -2,33 +2,33 @@
 CREATE VIEW pontos_full AS
 SELECT ufs.nome AS UF, cidades.nome AS CIDADE, pontos_turisticos.nome AS ATRAÇÃO, tipo AS TIPO
 FROM pontos_turisticos 
-JOIN cidades ON pontos_turisticos.cidade_id = cidades.cidade_id 
-JOIN ufs ON cidades.uf_id = ufs.uf_id;
+JOIN cidades USING (cidade_id)
+JOIN ufs USING (uf_id);
 
 /* LISTA DE QUANTIDADE DE VISITAS COM ANO, MES, PAIS ORIGEM E UF DESTINO */
 CREATE VIEW visitas_full AS
 SELECT ano, mes, pais, nome, quantidade
 FROM visitas
-JOIN ufs ON visitas.uf_id = ufs.uf_id;
+JOIN ufs USING (uf_id);
 
 /* COMENTARIO DE PONTOS TURISTICOS COM O NOME DO USUARIO, DATA DE CRIAÇÃO E NOME DO PONTO TURISTICO */
 CREATE VIEW comentarios_pturistico_full AS
 SELECT texto AS "Comment", nome_usuario AS "By", data_criacao AS "At", nome AS "On", pontos_turisticos.ponto_turistico_id
 FROM comentarios_pturistico
-JOIN comentarios ON comentarios.comentario_id = comentarios_pturistico.comentario_id 
-JOIN pontos_turisticos ON comentarios_pturistico.ponto_turistico_id = pontos_turisticos.ponto_turistico_id
+JOIN comentarios USING (comentario_id)
+JOIN pontos_turisticos USING (ponto_turistico_id)
 JOIN 
 	(SELECT usuario_id, nome_completo AS nome_usuario FROM clientes
 	UNION 
 	SELECT usuario_id, nome_fantasia AS nome_usuario FROM anunciantes) AS usuarios_completo
-	ON comentarios_pturistico.usuario_id = usuarios_completo.usuario_id;
+	USING (usuario_id);
 
 /* COMENTARIO DE EVENTOS COM O NOME DO USUARIO, DATA DE CRIAÇÃO E NOME DO EVENTO */
 CREATE VIEW comentarios_evento_full AS
 SELECT texto AS "Comment", nome_usuario AS "By", data_criacao AS "At", nome AS "On", eventos.evento_id
 FROM comentarios_evento
-JOIN comentarios ON comentarios.comentario_id = comentarios_evento.comentario_id 
-JOIN eventos ON comentarios_evento.evento_id = eventos.evento_id
+JOIN comentarios USING (comentario_id)
+JOIN eventos USING (evento_id)
 JOIN 
 	(SELECT usuario_id, nome_completo AS nome_usuario FROM clientes
 	UNION 
@@ -39,8 +39,8 @@ JOIN
 CREATE VIEW comentarios_hospedagem_full AS
 SELECT texto AS "Comment", nome_usuario AS "By", data_criacao AS "At", nome AS "On", hospedagens.hospedagem_id
 FROM comentarios_hospedagem
-JOIN comentarios ON comentarios.comentario_id = comentarios_hospedagem.comentario_id 
-JOIN hospedagens ON comentarios_hospedagem.hospedagem_id = hospedagens.hospedagem_id
+JOIN comentarios USING (comentario_id)
+JOIN hospedagens USING (hospedagem_id)
 JOIN 
 	(SELECT usuario_id, nome_completo AS nome_usuario FROM clientes
 	UNION 

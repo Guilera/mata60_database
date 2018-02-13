@@ -21,14 +21,14 @@ SELECT * FROM comentarios WHERE texto REGEXP '#[[:alnum:]]';
 /* SELECIONA TODOS OS PONTOS TURISTICOS QUE POSSUEM A PALAVRA "CHURCH" NA DESCRIÇÃO */
 SELECT cidades.nome, pontos_turisticos.nome, tipo, descricao 
 FROM pontos_turisticos 
-JOIN cidades ON cidades.cidade_id = pontos_turisticos.cidade_id 
+JOIN cidades USING (cidade_id)
 WHERE descricao LIKE '%church%';
 
 /* SELECIONA OS 10 CLIENTES MAIS ATIVOS */
 SELECT nome_completo AS nome, COUNT(*) AS qnt_comentarios
 FROM clientes
-LEFT JOIN comentarios_pturistico ON clientes.usuario_id = comentarios_pturistico.usuario_id
-INNER JOIN comentarios ON comentarios_pturistico.comentario_id = comentarios.comentario_id
+LEFT JOIN comentarios_pturistico USING (usuario_id)
+INNER JOIN comentarios USING (comentario_id)
 GROUP BY nome_completo
 ORDER BY qnt_comentarios DESC LiMIT 10;
 
