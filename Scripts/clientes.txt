@@ -118,3 +118,5 @@ Zlatan Ibrahimovic, 3 October 1981 Sweden
 Pierre Aubameyang, 29 May 1965 Gabon
 Henrikh Mkhitaryan, 21 January 1989 Armenia
 Keylor Navas, 15 December 1986 Costa Rica
+Christian Eriksen, 14 February 1992 Denmark
+Marek Hamsik, 27 July 1987 Slovakia

@@ -238,3 +238,7 @@ INSERT INTO usuarios(username, senha, tipo) VALUES ('mkhitaryan', '123', 1);
 INSERT INTO clientes VALUES ('Henrikh Mkhitaryan', 'Armenia', '1989-01-21', LAST_INSERT_ID());
 INSERT INTO usuarios(username, senha, tipo) VALUES ('navas', '123', 1);
 INSERT INTO clientes VALUES ('Keylor Navas', 'Costa Rica', '1986-12-15', LAST_INSERT_ID());
+INSERT INTO usuarios(username, senha, tipo) VALUES ('eriksen', '123', 1);
+INSERT INTO clientes VALUES ('Christian Eriksen', 'Denmark', '1992-02-14', LAST_INSERT_ID());
+INSERT INTO usuarios(username, senha, tipo) VALUES ('hamsik', '123', 1);
+INSERT INTO clientes VALUES ('Marek Hamsik', 'Slovakia', '1987-07-27', LAST_INSERT_ID());
