@@ -13,5 +13,11 @@ source ../Scripts/comentarios_pturistico.sql;
 /* LOAD DE INSERÇÃO DE HOSPEDAGENS */
 source ../Scripts/hospedagens.sql;
 
+/* SCRIPT DE INSERÇÃO DE COMENTARIOS DE HOSPEDAGENS */
+source ../Scripts/comentarios_hospedagem.sql;
+
 /* LOAD DE INSERÇÃO DE EVENTOS */
 source ../Scripts/eventos.sql;
+
+/* SCRIPT DE INSERÇÃO DE COMENTARIOS DE EVENTOS */
+source ../Scripts/comentarios_evento.sql;
