@@ -78,7 +78,7 @@ CREATE TABLE hospedagens (
 	usuario_id INT NOT NULL,
 	cidade_id INT NOT NULL,
 
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+	FOREIGN KEY (usuario_id) REFERENCES anunciantes(usuario_id),
 	FOREIGN KEY (cidade_id) REFERENCES cidades(cidade_id)
 );
 
@@ -95,7 +95,7 @@ CREATE TABLE eventos (
 	usuario_id INT NOT NULL,
 	cidade_id INT NOT NULL,
 
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+	FOREIGN KEY (usuario_id) REFERENCES anunciantes(usuario_id),
 	FOREIGN KEY (cidade_id) REFERENCES cidades(cidade_id)
 );
 
