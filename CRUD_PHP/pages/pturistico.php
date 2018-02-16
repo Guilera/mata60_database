@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
-  include ("../metodo/conectar.php");
-  //$grupo = selectAllPessoa();
+  include ("../metodo/ponto_turistico/conectar-ponto_turistico.php");
+  $grupo = selectAllPontos_Turisticos();
+  //var_dump($grupo);
 ?>
 
 <head>
@@ -18,13 +19,13 @@
   <div>
     <!-- <div class="box" style="float: left;"> -->
     <div class="box">
-      <form name="inserir" action="metodo/inserir.php" method="POST">
+      <form name="inserir-ponto_turistico" action="../metodo/inserir-ponto_turistico.php" method="POST">
         <input type="hidden" name="acao" value="inserir" />
         <input type="submit" value="Adicionar Ponto Turístico" name="inserir" /> 
      </form>
     </div>
     <div class="box">
-     <form name="inserir" action="metodo/busca-avancada.php" method="POST">
+     <form name="busca-avancada-ponto_turistico" action="metodo/busca-avancada-ponto_turistico.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
     </div>
@@ -34,8 +35,8 @@
      </form>
     </div>
     <div class="box" style="float: right;">
-      <form name="pesquisar" action="metodo/pesquisar.php" method="POST">
-        <input type="text" name="pesquisar" class="form-control" id="exampleInputName2" maxlength="20" size="15" placeholder="Busca Rápida...">
+      <form name="pesquisar-ponto_turistico" action="metodo/pesquisar.php" method="POST">
+        <input type="text" name="pesquisar" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
         <button type="submit" class="btn btn-primary">Procurar</button>
       </form>
     </div>
@@ -45,11 +46,14 @@
 
     <thead>
       <tr>
-        <th>Nome</th>
-        <th>País Origem</th>
-        <th>Data Nascimento</th>
-        <th id="thButton">Editar</th>
-        <th id="thButton">Excluir</th>
+        <th width="200">Nome</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -57,20 +61,23 @@
       foreach ($grupo as $pontos_turisticos) { ?>
           
         <tr>
-          <td><?=$pessoa["nome"]?></td>
-          <td><?=$pessoa["pais"]?></td>
-          <td><?=formatoData($pessoa["nascimento"])?></td>
+          <td><?=utf8_encode($pontos_turisticos["nome"])?></td>
+          <td><?=utf8_encode($pontos_turisticos["tipo"])?></td>
+          <td><?=utf8_encode($pontos_turisticos["descricao"])?></td>
+          <td><?=utf8_encode($pontos_turisticos["logradouro"])?></td>
+          <td><?=utf8_encode($pontos_turisticos["bairro"])?></td>
+          <td><?=utf8_encode($pontos_turisticos["cidnome"])?></td>
           <td>
-            <form name="alterar" action="metodo/alterar.php" method="POST">
-              <input type="hidden" name="id_pessoa" value="<?=$pessoas["id_pessoa"]?>" />
-              <input type="submit" value="Editar" name="editar" />  
+            <form name="alterar-ponto_turistico" action="../metodo/ponto_turistico/alterar-ponto_turistico.php" method="POST">
+              <input type="hidden" name="ponto_turistico_id" value="<?=$ponto_turisticos["ponto_turistico_id"]?>" />
+              <input type="image" width="30" src="../imgs/i-editar.png">
             </form>
           </td>
           <td>
-            <form name="excluir" action="metodo/conectar.php" method="POST">
-              <input type="hidden" name="id_pessoa" value="<?=$pessoas["id_pessoa"]?>" />
-              <input type="hidden" name="acao" value="excluir" />
-              <input type="submit" value="Excluir" name="excluir" />  
+            <form name="excluir-ponto_turistico" action="../metodo/ponto_turistico/conectar-ponto_turistico.php" method="POST">
+              <input type="hidden" name="ponto_turistico_id" value="<?=$ponto_turisticos["ponto_turistico_id"]?>" />
+              <input type="hidden" name="acao" value="excluir-ponto_turistico" />
+              <input type="image" width="30" src="../imgs/i-excluir.png">
             </form>
           </td>
         </tr>
@@ -80,14 +87,7 @@
       
     </tbody>
   </table>
-    
-  <?php
-    function formatoData($data) {
-      $array = explode("-", $data);
-      $novaData = $array[2]."/".$array[1]."/".$array[0];
-      return $novaData;
-    }
-  ?>
+
 </body>
 
 </html>

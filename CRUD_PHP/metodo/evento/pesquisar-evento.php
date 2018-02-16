@@ -6,8 +6,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Pesquisa</title>
-  <h1>Resultado Clientes<br></h1>
+  <title>Agenda</title>
+  <h1>Agenda Pessoal<br></h1>
   <!--<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>-->
   <link rel="stylesheet" type="text/css" href="../../css/style2.css">
 </head>
@@ -31,12 +31,11 @@
 
     <thead>
       <tr>
-        <th width="400">Nome</th>
-        <th width="300">Usuário</th>
+        <th width="550">Nome</th>
         <th width="250">País Origem</th>
         <th width="150">Data Nascimento</th>
-        <th width="8"></th>
-        <th width="8"></th>
+        <th id="thButton">Editar</th>
+        <th id="thButton">Excluir</th>
       </tr>
     </thead>
     <tbody>
@@ -45,22 +44,19 @@
           
         <tr>
           <td><?=$clientes["nome_completo"]?></td>
-          <td><?=$clientes["username"]?></td>
           <td><?=$clientes["pais"]?></td>
           <td><?=formatoData($clientes["data_nasc"])?></td>
           <td>
             <form name="alterar-cliente" action="alterar-cliente.php" method="POST">
-              <input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
-              <input type="image" width="30" src="../../imgs/i-editar.png">
-              <!--<input type="submit" value="Editar" name="editar" />-->
+              <input type="hidden" name="pessoa_id" value="<?=$clientes["pessoa_id"]?>" />
+              <input type="submit" value="Editar" name="editar" />  
             </form>
           </td>
           <td>
             <form name="excluir-cliente" action="conectar-cliente.php" method="POST">
-              <input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
+              <input type="hidden" name="pessoa_id" value="<?=$clientes["pessoa_id"]?>" />
               <input type="hidden" name="acao" value="excluir-cliente" />
-              <input type="image" width="30" src="../../imgs/i-excluir.png">
-              <!--<input type="submit" value="Excluir" name="excluir" />-->
+              <input type="submit" value="Excluir" name="excluir" />  
             </form>
           </td>
         </tr>

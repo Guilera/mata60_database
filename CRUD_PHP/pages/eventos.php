@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-  include ("../metodo/conectar.php");
-  //$grupo = selectAllPessoa();
+  include ("../metodo/evento/conectar-evento.php");
+  //$grupo = selectAllEvento();
 ?>
 
 <head>
@@ -46,8 +46,13 @@
     <thead>
       <tr>
         <th>Nome</th>
-        <th>País Origem</th>
-        <th>Data Nascimento</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Data-Hora</th>
+        <th>Valor</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>Numero</th>
         <th id="thButton">Editar</th>
         <th id="thButton">Excluir</th>
       </tr>

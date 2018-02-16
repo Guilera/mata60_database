@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  include ("../metodo/conectar.php");
+  include ("../metodo/cliente/conectar-cliente.php");
   $grupo = selectAllClientes();
 ?>
 
@@ -23,7 +23,7 @@
      </form>
     </div>
     <div class="box">
-     <form name="inserir" action="../metodo/cliente/busca-avancada-cliente.php" method="POST">
+     <form name="busca-avancada-cliente" action="../metodo/cliente/busca-avancada-cliente.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
     </div>
@@ -44,11 +44,12 @@
 
     <thead>
       <tr>
-        <th width="550">Nome</th>
+        <th width="400">Nome</th>
+        <th width="300">Usuário</th>
     		<th width="250">País Origem</th>
     		<th width="150">Data Nascimento</th>
-    		<th id="thButton">Editar</th>
-    		<th id="thButton">Excluir</th>
+    		<th width="8"></th>
+    		<th width="8"></th>
       </tr>
     </thead>
     <tbody>
@@ -56,20 +57,23 @@
       foreach ($grupo as $clientes) { ?>
           
         <tr>
-          <td><?=$clientes["nome_completo"]?></td>
-          <td><?=$clientes["pais"]?></td>
+          <td><?=utf8_encode($clientes["nome_completo"])?></td>
+          <td><?=utf8_encode($clientes["username"])?></td>
+          <td><?=utf8_encode($clientes["pais"])?></td>
           <td><?=formatoData($clientes["data_nasc"])?></td>
           <td>
             <form name="alterar-cliente" action="../metodo/cliente/alterar-cliente.php" method="POST">
-              <input type="hidden" name="pessoa_id" value="<?=$clientes["pessoa_id"]?>" />
-              <input type="submit" value="Editar" name="editar" />  
+              <input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
+              <input type="image" width="30" src="../imgs/i-editar.png">
+              <!--<input type="submit" value="Editar" name="editar" />-->
             </form>
           </td>
           <td>
-            <form name="excluir-cliente" action="../metodo/conectar.php" method="POST">
-              <input type="hidden" name="pessoa_id" value="<?=$clientes["pessoa_id"]?>" />
+            <form name="excluir-cliente" action="../metodo/cliente/conectar-cliente.php" method="POST">
+              <input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
               <input type="hidden" name="acao" value="excluir-cliente" />
-              <input type="submit" value="Excluir" name="excluir" />  
+              <input type="image" width="30" src="../imgs/i-excluir.png">
+              <!--<input type="submit" value="Excluir" name="excluir" />-->
             </form>
           </td>
         </tr>

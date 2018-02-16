@@ -1,5 +1,5 @@
 <?php
-  include ("conectar.php");
+  include ("conectar-cliente.php");
   $valor_nome = $_POST['pesquisar'];
   $valor_nascimento = $_POST['pesquisar'];
   $valor_telefone = $_POST['pesquisar'];
@@ -10,7 +10,7 @@
 
 <h1>Busca Avançada<br></h1>
 <meta charset="utf-8">
-<form name="dadosPessoa" action="conectar.php" method="POST">
+<form name="dadosPessoa" action="conectar-cliente.php" method="POST">
 	<table>
 		<tbody>
 			<tr>

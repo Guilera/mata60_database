@@ -1,20 +1,22 @@
 <?php
 	
 	if (isset($_POST["acao"])) {
-		if ($_POST["acao"]=="inserir-cliente") {
-			inserir_cliente2();
+		if ($_POST["acao"]=="inserir-evento") {
+			inserir_evento();
 		}
-		if ($_POST["acao"]=="alterar-cliente") {
-			alterar_cliente();
+		else if ($_POST["acao"]=="alterar-evento") {
+			alterar_evento();
 		}
-		if ($_POST["acao"]=="pesquisar-cliente") {
-			pesquisar_clientes();
+		else if ($_POST["acao"]=="pesquisar-evento") {
+			pesquisar_eventos();
 		}
-		if ($_POST["acao"]=="excluir-cliente") {
-			excluir_cliente();
+		else if ($_POST["acao"]=="excluir-evento") {
+			excluir_evento();
+		}
+		else if ($_POST["acao"]=="busca-avancada-evento") {
+			excluir_evento();
 		}
 		else voltarIndex();
-
 	}
 
 	function abrirBanco(){
@@ -22,39 +24,28 @@
 		return $conexao;
 	}
 
-	function inserir_cliente(){
-		$banco = abrirBanco();
-		$sql = "INSERT INTO clientes (nome_completo, pais, data_nasc)"
-				. " VALUES ('{$_POST["nome_completo"]}','{$_POST["pais"]}','{$_POST["data_nasc"]}')";
-		$banco->query($sql);
-		$banco->close();
-		voltarClientes();
-	}
-
- 	function inserir_cliente2(){
+ 	function inserir_evento(){
 	 	$banco = abrirBanco();
-	 	$sql = "INSERT INTO pessoas values ()";
-	 	$banco->query($sql);
-	 	$sql = "INSERT INTO clientes (nome_completo, pais, data_nasc, pessoa_id)"
+	 	$sql = "INSERT INTO eventos (nome_completo, pais, data_nasc, pessoa_id)"
 	 			. " VALUES ('{$_POST["nome_completo"]}','{$_POST["pais"]}','{$_POST["data_nasc"]}', LAST_INSERT_ID())";
 	 	$banco->query($sql);
 	 	$banco->close();
-	 	voltarClientes();
-	 }
+	 	voltareventos();
+	}
 
-	function alterar_cliente(){
+	function alterar_evento(){
 		$banco = abrirBanco();
-		$sql = "UPDATE clientes SET nome_completo='{$_POST["nome_completo"]}',"
+		$sql = "UPDATE eventos SET nome_completo='{$_POST["nome_completo"]}',"
 				." pais='{$_POST["pais"]}', data_nasc='{$_POST["data_nasc"]}'"
 				." WHERE pessoa_id='{$_POST["pessoa_id"]}'";
 		$banco->query($sql);
 		$banco->close();
-		voltarClientes();
+		voltareventos();
 	}
 
-	 function pesquisar_clientes($valor_pesquisar){
-	 	$banco = abrirBanco();
-	 	$sql = "SELECT * FROM clientes WHERE nome_completo LIKE '%$valor_pesquisar%'";
+	function pesquisar_eventos($valor_pesquisar){
+		$banco = abrirBanco();
+		$sql = "SELECT * FROM eventos WHERE nome_completo LIKE '%$valor_pesquisar%'";
 	 	$resultado = $banco->query($sql);
 	 	$banco->close();
 	 	while ($row = mysqli_fetch_array($resultado)) {
@@ -90,22 +81,22 @@
 	//	return $grupo;
 	//}
 
-	function pesquisarPessoasAvancado($nome, $nascimento, $telefone, $endereco){
+	function pesquisareventosAvancado($nome, $nascimento, $telefone, $endereco){
 		$banco = abrirBanco();
 		if(!empty($nome)) {
-			$sql = "SELECT * FROM pessoa WHERE nome LIKE '%$nome%'";
+			$sql = "SELECT * FROM eventos WHERE nome LIKE '%$nome%'";
 			$resultado = $banco->query($sql);
 		}
 		if(!empty($nascimento)) {
-			$sql = "SELECT * FROM pessoa WHERE nascimento LIKE '%$nascimento%'";
+			$sql = "SELECT * FROM eventos WHERE nascimento LIKE '%$nascimento%'";
 			$resultado = $banco->query($sql);
 		}
 		if(!empty($telefone)) {
-			$sql = "SELECT * FROM pessoa WHERE telefone LIKE '%$telefone%'";
+			$sql = "SELECT * FROM eventos WHERE telefone LIKE '%$telefone%'";
 			$resultado = $banco->query($sql);
 		}
 		if(!empty($endereco)) {
-			$sql = "SELECT * FROM pessoa WHERE endereco LIKE '%$endereco%'";
+			$sql = "SELECT * FROM eventos WHERE endereco LIKE '%$endereco%'";
 			$resultado = $banco->query($sql);
 		}
 		$banco->close();
@@ -115,17 +106,17 @@
 		return $grupo;
 	}
 
-	function excluir_cliente(){
+	function excluir_evento(){
 		$banco = abrirBanco();
-		$sql = "DELETE FROM clientes WHERE pessoa_id='{$_POST["pessoa_id"]}'";
+		$sql = "DELETE FROM eventos WHERE pessoa_id='{$_POST["pessoa_id"]}'";
 		$banco->query($sql);
 		$banco->close();
-		voltarClientes();
+		voltareventos();
 	}
 
-	function selectAllClientes(){
+	function selectAlleventos(){
 		$banco = abrirBanco();
-		$sql = "SELECT * FROM clientes ORDER BY nome_completo";
+		$sql = "SELECT * FROM eventos ORDER BY nome";
 		$resultado = $banco->query($sql);
 		$banco->close();
 		while ($row = mysqli_fetch_array($resultado)) {
@@ -134,20 +125,9 @@
 		return $grupo;
 	}
 
-	function selectAllAnunciantes(){
+	function selectIdevento($evento_id){
 		$banco = abrirBanco();
-		$sql = "SELECT * FROM anunciantes ORDER BY nome_completo";
-		$resultado = $banco->query($sql);
-		$banco->close();
-		while ($row = mysqli_fetch_array($resultado)) {
-			$grupo[] = $row;
-		}
-		return $grupo;
-	}
-
-	function selectIdCliente($pessoa_id){
-		$banco = abrirBanco();
-		$sql = "SELECT * FROM clientes WHERE pessoa_id=".$pessoa_id;
+		$sql = "SELECT * FROM eventos WHERE evento_id=".$evento_id;
 		$resultado = $banco->query($sql);
 		$banco->close();
 		$pessoa = mysqli_fetch_assoc($resultado);
@@ -158,6 +138,6 @@
 		header("location: ../index.php");
 	}
 
-	function voltarClientes(){
-		header("location: ../pages/clientes.php");
+	function voltareventos(){
+		header("location: ../../pages/eventos.php");
 	}
