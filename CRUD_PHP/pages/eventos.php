@@ -62,14 +62,14 @@
       foreach ($grupo as $eventos) { ?>
           
         <tr>
-          <td><?=utf8_encode($eventos["nome"])?></td>
-          <td><?=utf8_encode($eventos["tipo"])?></td>
-          <td><?=utf8_encode($eventos["descricao"])?></td>
-          <td><?=utf8_encode($eventos["data_hora"])?></td>
-          <td><?=utf8_encode($eventos["valor"])?></td>
-          <td><?=utf8_encode($eventos["logradouro"])?></td>
-          <td><?=utf8_encode($eventos["anuncnome"])?></td>
-          <td><?=utf8_encode($eventos["cidnome"])?></td>
+          <td><?=$eventos["nome"]?></td>
+          <td><?=$eventos["tipo"]?></td>
+          <td><?=$eventos["descricao"]?></td>
+          <td><?=$eventos["data_hora"]?></td>
+          <td><?=$eventos["valor"]?></td>
+          <td><?=$eventos["logradouro"]?></td>
+          <td><?=$eventos["anuncnome"]?></td>
+          <td><?=$eventos["cidnome"]?></td>
           <td>
             <form name="alterar-evento" action="../metodo/evento/alterar-evento.php" method="POST">
               <input type="hidden" name="hospedagem_id" value="<?=$eventos["evento_id"]?>" />

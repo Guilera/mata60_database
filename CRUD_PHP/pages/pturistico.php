@@ -61,12 +61,12 @@
       foreach ($grupo as $pontos_turisticos) { ?>
           
         <tr>
-          <td><?=utf8_encode($pontos_turisticos["nome"])?></td>
-          <td><?=utf8_encode($pontos_turisticos["tipo"])?></td>
-          <td><?=utf8_encode($pontos_turisticos["descricao"])?></td>
-          <td><?=utf8_encode($pontos_turisticos["logradouro"])?></td>
-          <td><?=utf8_encode($pontos_turisticos["bairro"])?></td>
-          <td><?=utf8_encode($pontos_turisticos["cidnome"])?></td>
+          <td><?=$pontos_turisticos["nome"]?></td>
+          <td><?=$pontos_turisticos["tipo"]?></td>
+          <td><?=$pontos_turisticos["descricao"]?></td>
+          <td><?=$pontos_turisticos["logradouro"]?></td>
+          <td><?=$pontos_turisticos["bairro"]?></td>
+          <td><?=$pontos_turisticos["cidnome"]?></td>
           <td>
             <form name="alterar-ponto_turistico" action="../metodo/ponto_turistico/alterar-ponto_turistico.php" method="POST">
               <input type="hidden" name="ponto_turistico_id" value="<?=$ponto_turisticos["ponto_turistico_id"]?>" />

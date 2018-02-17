@@ -57,9 +57,9 @@
       foreach ($grupo as $cidades) { ?>
           
         <tr>
-          <td><?=utf8_encode($cidades["nome"])?></td>
+          <td><?=$cidades["nome"]?></td>
           <td><?=$cidades["cidade_id"]?></td>
-          <td><?=utf8_encode($cidades["ufnome"])?></td>
+          <td><?=$cidades["ufnome"]?></td>
           <td><?=$cidades["uf_id"]?></td>
           <td>
             <form name="alterar-cidade" action="../metodo/cidade/alterar-cidade.php" method="POST">

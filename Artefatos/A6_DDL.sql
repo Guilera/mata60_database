@@ -1,5 +1,5 @@
 DROP DATABASE turismo;
-CREATE DATABASE turismo;
+CREATE DATABASE turismo CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE turismo;
 
 CREATE TABLE usuarios (
@@ -52,7 +52,7 @@ CREATE TABLE cidades (
 	uf_id INT NOT NULL,
 
    FOREIGN KEY (uf_id) REFERENCES ufs(uf_id),
-   UNIQUE(uf_id, nome);
+   UNIQUE(uf_id, nome)
 );
 
 CREATE TABLE pontos_turisticos (

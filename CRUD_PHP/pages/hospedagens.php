@@ -63,15 +63,15 @@
       foreach ($grupo as $hospedagens) { ?>
           
         <tr>
-          <td><?=utf8_encode($hospedagens["nome"])?></td>
-          <td><?=utf8_encode($hospedagens["tipo"])?></td>
-          <td><?=utf8_encode($hospedagens["descricao"])?></td>
-          <td><?=utf8_encode($hospedagens["valor_diaria"])?></td>
-          <td><?=utf8_encode($hospedagens["logradouro"])?></td>
-          <td><?=utf8_encode($hospedagens["bairro"])?></td>
-          <td><?=utf8_encode($hospedagens["numero"])?></td>
-          <td><?=utf8_encode($hospedagens["nome_fantasia"])?></td>
-          <td><?=utf8_encode($hospedagens["cidnome"])?></td>
+          <td><?=$hospedagens["nome"]?></td>
+          <td><?=$hospedagens["tipo"]?></td>
+          <td><?=$hospedagens["descricao"]?></td>
+          <td><?=$hospedagens["valor_diaria"]?></td>
+          <td><?=$hospedagens["logradouro"]?></td>
+          <td><?=$hospedagens["bairro"]?></td>
+          <td><?=$hospedagens["numero"]?></td>
+          <td><?=$hospedagens["nome_fantasia"]?></td>
+          <td><?=$hospedagens["cidnome"]?></td>
           <td>
             <form name="alterar-hospedagem" action="../metodo/hospedagem/alterar-hospedagem.php" method="POST">
               <input type="hidden" name="hospedagem_id" value="<?=$hospedagens["hospedagem_id"]?>" />

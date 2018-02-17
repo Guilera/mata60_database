@@ -5,7 +5,7 @@
 ?>
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Clientes</title>
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head>
@@ -57,9 +57,9 @@
       foreach ($grupo as $clientes) { ?>
           
         <tr>
-          <td><?=utf8_encode($clientes["nome_completo"])?></td>
-          <td><?=utf8_encode($clientes["username"])?></td>
-          <td><?=utf8_encode($clientes["pais"])?></td>
+          <td><?=$clientes["nome_completo"]?></td>
+          <td><?=$clientes["username"]?></td>
+          <td><?=$clientes["pais"]?></td>
           <td><?=formatoData($clientes["data_nasc"])?></td>
           <td>
             <form name="alterar-cliente" action="../metodo/cliente/alterar-cliente.php" method="POST">

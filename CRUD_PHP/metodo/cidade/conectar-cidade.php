@@ -14,7 +14,7 @@
 			excluir_cidade();
 		}
 		else if ($_POST["acao"]=="busca-avancada-cidade") {
-			excluir_cidade();
+			
 		}
 		else if ($_POST["acao"]=="Cancelar") {
 			voltarcidades();
@@ -23,7 +23,10 @@
 	}
 
 	function abrirBanco(){
-		$conexao = new mysqli("localhost","root","teste123","turismo");
+		$conexao = new mysqli("localhost","admin","admin_turismo","turismo");
+		if(false === mysqli_set_charset($conexao, "utf8")){
+			echo "<script> alert('bug no charset');</script>";
+    	}
 		return $conexao;
 	}
 
