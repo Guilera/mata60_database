@@ -13,8 +13,8 @@
 		else if ($_POST["acao"]=="excluir-cliente") {
 			excluir_cliente();
 		}
-		else if ($_POST["acao"]=="busca-avancada-cliente") {
-			
+		else if ($_POST["acao"]=="Busca Avancada") {
+			pesquisarClientesAvancado();
 		}
 		else if ($_POST["acao"]=="Cancelar") {
 			voltarClientes();

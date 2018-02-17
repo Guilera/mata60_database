@@ -4,7 +4,7 @@
 		if ($_POST["acao"]=="Criar") {
 			inserir_cidade();
 		}
-		else if ($_POST["acao"]=="alterar-cidade") {
+		else if ($_POST["acao"]=="Atualizar") {
 			alterar_cidade();
 		}
 		else if ($_POST["acao"]=="pesquisar-cidade") {
@@ -38,11 +38,9 @@
 
 	function alterar_cidade(){
 		$banco = abrirBanco();
-		$sql = "UPDATE usuarios SET username='{$_POST["username"]}' WHERE usuario_id='{$_POST["usuario_id"]}'";
-		$banco->query($sql);
-		$sql = "UPDATE cidades SET nome_completo='{$_POST["nome_completo"]}',"
-				." pais='{$_POST["pais"]}', data_nasc='{$_POST["data_nasc"]}'"
-				." WHERE usuario_id='{$_POST["usuario_id"]}'";
+		$sql = "UPDATE cidades SET nome='{$_POST["cidnome"]}',"
+				." uf_id='{$_POST["ufid"]}'"
+				." WHERE cidade_id='{$_POST["cidade_id"]}'";
 		$banco->query($sql);
 		$banco->close();
 		voltarcidades();
@@ -74,7 +72,7 @@
 
 	function selectAllCidades(){
 		$banco = abrirBanco();
-		$sql = "SELECT cidades.cidade_id,cidades.nome,ufs.nome as ufnome FROM cidades"
+		$sql = "SELECT cidades.cidade_id,cidades.nome,ufs.uf_id,ufs.nome as ufnome FROM cidades"
 			   . " INNER JOIN ufs USING (uf_id) ORDER BY ufnome,cidades.nome";
 		$resultado = $banco->query($sql);
 		$banco->close();
@@ -84,14 +82,12 @@
 		return $grupo;
 	}
 
-	function selectIdcidade($usuario_id){
+	function selectIdCidade($cidade_id){
 		$banco = abrirBanco();
 		//$sql = "SELECT * FROM cidades WHERE usuario_id=".$usuario_id;
-		$sql = "SELECT cidades.usuario_id,cidades.nome_completo,"
-			   . " cidades.pais,cidades.data_nasc,usuarios.username,usuarios.senha"
-			   . " FROM cidades"
-			   . " INNER JOIN ufs ON cidades.usuario_id = usuarios.usuario_id"
-			   . " WHERE cidades.usuario_id=".$usuario_id;
+		$sql = "SELECT cidades.cidade_id,cidades.nome as cidnome,cidades.uf_id,ufs.nome as ufnome"
+			   . " FROM cidades INNER JOIN ufs USING (uf_id)"
+			   . " WHERE cidades.cidade_id=".$cidade_id;
 		$resultado = $banco->query($sql);
 		$banco->close();
 		$pessoa = mysqli_fetch_assoc($resultado);

@@ -29,10 +29,10 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name="acao" value="Atualizar" />
 					<input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
+					<input type="submit" name="acao" value="Atualizar" />
 				</td>
-				<td><input type="submit" value="Atualizar" name="Atualizar" /></td>
+				<td><input type="submit" name="acao" value="Cancelar" /></td>
 			</tr>
 		</tbody>
 	</table>	

@@ -14,9 +14,9 @@
 			excluir_evento();
 		}
 		else if ($_POST["acao"]=="busca-avancada-evento") {
-			excluir_evento();
+			
 		}
-		else voltarIndex();
+		//else voltarIndex();
 	}
 
 	function abrirBanco(){
@@ -54,33 +54,6 @@
 	 	return $grupo;
 	 }
 
-	// Nao funcionando:
-	//function pesquisarPessoas($valor_pesquisar){
-	//	$banco = abrirBanco();
-	//	$sql = "SELECT * FROM pessoa LIKE '%$valor_pesquisar%'";
-	//	$resultado1 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE nascimento LIKE '%$valor_pesquisar%'";
-	//	$resultado2 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE telefone LIKE '%$valor_pesquisar%'";
-	//	$resultado3 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE endereco LIKE '%$valor_pesquisar%'";
-	//	$resultado4 = $banco->query($sql);
-	//	$banco->close();
-	//	while ($row = mysqli_fetch_array($resultado1)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado2)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado3)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado4)) {
-	//		$grupo[] = $row;
-	//	}
-	//	return $grupo;
-	//}
-
 	function pesquisareventosAvancado($nome, $nascimento, $telefone, $endereco){
 		$banco = abrirBanco();
 		if(!empty($nome)) {
@@ -116,7 +89,10 @@
 
 	function selectAlleventos(){
 		$banco = abrirBanco();
-		$sql = "SELECT * FROM eventos ORDER BY nome";
+		$sql = "SELECT eventos.nome,tipo,descricao,data_hora,valor,logradouro,eventos.usuario_id,"
+			   . " eventos.cidade_id,anunciantes.nome_fantasia as anuncnome,cidades.nome as cidnome"
+			   . " FROM eventos INNER JOIN anunciantes USING (usuario_id)"
+			   . " INNER JOIN cidades USING (cidade_id) ORDER BY nome";
 		$resultado = $banco->query($sql);
 		$banco->close();
 		while ($row = mysqli_fetch_array($resultado)) {

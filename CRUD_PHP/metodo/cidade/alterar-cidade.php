@@ -1,37 +1,34 @@
 <?php
-	include("conectar-cliente.php");
-	$clientes = selectIdCliente($_POST["usuario_id"]);
-	//var_dump($pessoa);
+	include("conectar-cidade.php");
+	$cidades = selectIdCidade($_POST["cidade_id"]);
+	$grupo = getNomeUFs();
 ?>
 <meta charset="utf-8">
-<form name="dadosPessoa" action="conectar-cliente.php" method="POST">
+<form name="dadosCidade" action="conectar-cidade.php" method="POST">
 	<table>
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome_completo" value="<?=$clientes["nome_completo"]?>" size="20" /></td>
+				<td><input type="text" name="cidnome" value="<?=utf8_encode($cidades["cidnome"])?>" size="20" /></td>
 			</tr>
 			<tr>
-				<td>Usuário:</td>
-				<td><input type="text" name="username" value="<?=$clientes["username"]?>" size="20" /></td>
-			</tr>
-			<tr>
-				<td>Senha:</td>
-				<td><input type="text" name="senha" value="<?=$clientes["senha"]?>" size="20" /></td>
-			</tr>
-			<tr>
-				<td>País:</td>
-				<td><input type="text" name="pais" value="<?=$clientes["pais"]?>" size="20"/></td>
-			</tr>
-			<tr>
-				<td>Nascimento:</td>
-				<td><input type="date" name="data_nasc" value="<?=$clientes["data_nasc"]?>" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="acao" value="alterar-cliente" />
-				<input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
+				<td>UF:</td>
+				<td>
+					<select name="ufid">
+						<?php foreach ($grupo as $ufs) { ?>
+					    	<option value="<?=$ufs["uf_id"]?>">
+					    		<?=utf8_encode($ufs["nome"])?>
+					    	</option>
+					    <?php } ?>
+					</select>
 				</td>
-				<td><input type="submit" value="Atualizar" name="Atualizar" /></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="cidade_id" value="<?=$cidades["cidade_id"]?>" />
+					<input type="submit" name="acao" value="Atualizar" />
+				</td>
+				<td><input type="submit" name="acao" value="Cancelar" /></td>
 			</tr>
 		</tbody>
 	</table>	

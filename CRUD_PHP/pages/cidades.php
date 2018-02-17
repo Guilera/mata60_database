@@ -44,8 +44,10 @@
 
     <thead>
       <tr>
-        <th width="400">Nome</th>
+        <th width="300">Nome</th>
+        <th width="200">ID Nome</th>
         <th width="300">Unidade Federativa</th>
+        <th width="200">ID UF</th>
         <th width="8"></th>
         <th width="8"></th>
       </tr>
@@ -56,7 +58,9 @@
           
         <tr>
           <td><?=utf8_encode($cidades["nome"])?></td>
+          <td><?=$cidades["cidade_id"]?></td>
           <td><?=utf8_encode($cidades["ufnome"])?></td>
+          <td><?=$cidades["uf_id"]?></td>
           <td>
             <form name="alterar-cidade" action="../metodo/cidade/alterar-cidade.php" method="POST">
               <input type="hidden" name="cidade_id" value="<?=$cidades["cidade_id"]?>" />

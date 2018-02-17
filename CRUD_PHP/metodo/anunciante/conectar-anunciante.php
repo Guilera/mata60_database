@@ -13,8 +13,8 @@
 		else if ($_POST["acao"]=="excluir-anunciante") {
 			excluir_anunciante();
 		}
-		else if ($_POST["acao"]=="busca-avancada-anunciante") {
-			excluir_anunciante();
+		else if ($_POST["acao"]=="Busca Avancada") {
+			pesquisarAnunciantesAvancado();
 		}
 		else if ($_POST["acao"]=="Cancelar") {
 			voltaranunciantes();
@@ -69,6 +69,23 @@
 	 	}
 	 	return $grupo;
 	 }
+
+	// function pesquisarAnunciantesAvancado($nome, $nascimento, $telefone, $endereco){
+	// 	$banco = abrirBanco();
+	// 	$sql = "SELECT anunciantes.usuario_id,anunciantes.nome_fantasia,"
+	// 	   . " anunciantes.cnpj,anunciantes.tipo_de_servico,"
+	// 	   . " anunciantes.homepage,anunciantes.telefone,usuarios.username"
+	// 	   . " FROM anunciantes"
+	// 	   . " INNER JOIN usuarios ON anunciantes.usuario_id = usuarios.usuario_id"
+	// 	   . " WHERE anunciantes.nome_fantasia LIKE '%$valor_pesquisar%'"
+	// 	   . " AND username LIKE '%$valor_pesquisar%'";
+	// 	$resultado = $banco->query($sql);
+	// 	$banco->close();
+	// 	while ($row = mysqli_fetch_array($resultado)) {
+	// 		$grupo[] = $row;
+	// 	}
+	//	return $grupo;
+	//}
 
 	function excluir_anunciante(){
 		$banco = abrirBanco();

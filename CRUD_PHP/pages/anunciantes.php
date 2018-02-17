@@ -11,7 +11,7 @@
 </head>
 
 <header>
-    <h1>LIsta de Anunciantes</h1>
+    <h1>Lista de Anunciantes</h1>
 </header>
 
 <body>
@@ -45,7 +45,7 @@
     <thead>
       <tr>
         <th width="160">Nome Fantasia</th>
-        <th width="130">USuário</th>
+        <th width="130">Usuário</th>
         <th width="150">CNPJ</th>
         <th width="140">Serviço</th>
         <th width="140">Homepage</th>
