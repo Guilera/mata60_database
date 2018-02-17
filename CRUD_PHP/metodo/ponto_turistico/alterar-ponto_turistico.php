@@ -28,11 +28,10 @@
 				<td><input type="date" name="data_nasc" value="<?=$clientes["data_nasc"]?>" /></td>
 			</tr>
 			<tr>
-				<td>
-					<input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
-					<input type="submit" name="acao" value="Atualizar" />
+				<td><input type="hidden" name="acao" value="alterar-cliente" />
+				<input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
 				</td>
-				<td><input type="submit" name="acao" value="Cancelar" /></td>
+				<td><input type="submit" value="Atualizar" name="Atualizar" /></td>
 			</tr>
 		</tbody>
 	</table>	

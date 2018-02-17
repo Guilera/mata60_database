@@ -36,6 +36,7 @@
 #thButton {
     width: 5%;
 }
+
 @media (min-width: 480px) {
   .responstable th:nth-child(2) span {
     display: block;

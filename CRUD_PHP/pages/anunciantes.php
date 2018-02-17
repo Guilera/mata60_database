@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-  include ("../metodo/conectar.php");
-  //$grupo = selectAllAnunciantes();
+  include ("../metodo/anunciante/conectar-anunciante.php");
+  $grupo = selectAllAnunciantes();
 ?>
 
 <head>
@@ -16,15 +16,14 @@
 
 <body>
   <div>
-    <!-- <div class="box" style="float: left;"> -->
     <div class="box">
-      <form name="inserir" action="metodo/inserir.php" method="POST">
+      <form name="inserir-anunciante" action="../metodo/anunciante/inserir-anunciante.php" method="POST">
         <input type="hidden" name="acao" value="inserir" />
-        <input type="submit" value="Adicionar Anunciante" name="inserir" /> 
+        <input type="submit" value="Adicionar Anunciante" name="inserir-anunciante" /> 
      </form>
     </div>
     <div class="box">
-     <form name="inserir" action="metodo/busca-avancada.php" method="POST">
+     <form name="inserir" action="../metodo/anunciante/busca-avancada-anunciante.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
     </div>
@@ -34,9 +33,9 @@
      </form>
     </div>
     <div class="box" style="float: right;">
-      <form name="pesquisar" action="metodo/pesquisar.php" method="POST">
-        <input type="text" name="pesquisar" class="form-control" id="exampleInputName2" maxlength="20" size="15" placeholder="Busca Rápida...">
-        <button type="submit" class="btn btn-primary">Procurar</button>
+      <form name="pesquisar-anunciante" action="../metodo/anunciante/pesquisar-anunciante.php" method="POST">
+        <input type="text" name="pesquisar-anunciante" maxlength="20" size="15" placeholder="Quick Search...">
+        <button type="submit" class="btn btn-primary">Search</button>
       </form>
     </div>
   </div>
@@ -45,11 +44,14 @@
 
     <thead>
       <tr>
-        <th>Nome</th>
-        <th>País Origem</th>
-        <th>Data Nascimento</th>
-        <th id="thButton">Editar</th>
-        <th id="thButton">Excluir</th>
+        <th width="160">Nome Fantasia</th>
+        <th width="130">Usuário</th>
+        <th width="150">CNPJ</th>
+        <th width="140">Serviço</th>
+        <th width="140">Homepage</th>
+        <th width="100">Telefone</th>
+        <th width="8"></th>
+        <th width="8"></th>
       </tr>
     </thead>
     <tbody>
@@ -57,20 +59,25 @@
       foreach ($grupo as $anunciantes) { ?>
           
         <tr>
-          <td><?=$pessoa["nome"]?></td>
-          <td><?=$pessoa["pais"]?></td>
-          <td><?=formatoData($pessoa["nascimento"])?></td>
+          <td><?=$anunciantes["nome_fantasia"]?></td>
+          <td><?=$anunciantes["username"]?></td>
+          <td><?=$anunciantes["cnpj"]?></td>
+          <td><?=$anunciantes["tipo_de_servico"]?></td>
+          <td><?=$anunciantes["homepage"]?></td>
+          <td><?=$anunciantes["telefone"]?></td>
           <td>
-            <form name="alterar" action="metodo/alterar.php" method="POST">
-              <input type="hidden" name="id_pessoa" value="<?=$pessoas["id_pessoa"]?>" />
-              <input type="submit" value="Editar" name="editar" />  
+            <form name="alterar-anunciante" action="../metodo/anunciante/alterar-anunciante.php" method="POST">
+              <input type="hidden" name="usuario_id" value="<?=$anunciantes["usuario_id"]?>" />
+              <input type="image" width="30" src="../imgs/i-editar.png">
+              <!--<input type="submit" value="Editar" name="editar" />-->
             </form>
           </td>
           <td>
-            <form name="excluir" action="metodo/conectar.php" method="POST">
-              <input type="hidden" name="id_pessoa" value="<?=$pessoas["id_pessoa"]?>" />
-              <input type="hidden" name="acao" value="excluir" />
-              <input type="submit" value="Excluir" name="excluir" />  
+            <form name="excluir-anunciante" action="../metodo/anunciante/conectar-anunciante.php" method="POST">
+              <input type="hidden" name="usuario_id" value="<?=$anunciantes["usuario_id"]?>" />
+              <input type="hidden" name="acao" value="excluir-anunciante" />
+              <input type="image" width="30" src="../imgs/i-excluir.png">
+              <!--<input type="submit" value="Excluir" name="excluir" />-->
             </form>
           </td>
         </tr>

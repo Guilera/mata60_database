@@ -7,16 +7,8 @@
 	<table>
 		<tbody>
 			<tr>
-				<td>Nome completo:</td>
+				<td>Nome Completo:</td>
 				<td><input type="text" name="nome_completo" value="" /></td>
-			</tr>
-			<tr>
-				<td>Usuário:</td>
-				<td><input type="text" name="username" value="" /></td>
-			</tr>
-			<tr>
-				<td>Senha:</td>
-				<td><input type="password" name="senha" value="" /></td>
 			</tr>
 			<tr>
 				<td>País:</td>
@@ -26,9 +18,10 @@
 				<td>Nascimento:</td>
 				<td><input type="date" name="data_nasc" value="" /></td>
 			</tr>
-			<tr style="display: inline-block;">
-				<td><input type="submit" name="acao" value="Criar" /></td>
-				<td><input type="submit" name="acao" value="Cancelar" /></td>
+			<tr  style="display: inline-block;">
+				<td><input type="hidden" name="acao" value="inserir-cliente" /></td>
+				<td><input type="submit" value="Criar" name="Criar" /></td>
+				<td><input type="submit" action="../../pages/clientes.php" value="Cancelar" /></td>
 			</tr>
 		</tbody>
 	</table>	

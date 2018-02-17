@@ -35,11 +35,27 @@
 			</tr>
 			<tr>
 				<td>Dia do Nascimento:</td>
-				<td><input type="number" min="1" max="31" name="dia-nasc" /></td>
+				<td>
+					<select>
+						<option></option> <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+						<option>5</option> <option>6</option> <option>7</option> <option>8</option> <option>9</option>
+						<option>10</option> <option>11</option> <option>12</option> <option>13</option> <option>14</option>
+						<option>15</option> <option>16</option> <option>17</option> <option>18</option> <option>19</option>
+						<option>20</option> <option>21</option> <option>22</option> <option>23</option> <option>24</option>
+						<option>25</option> <option>26</option> <option>27</option> <option>28</option> <option>29</option>
+						<option>30</option> <option>31</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td>Mês do Nascimento:</td>
-				<td><input type="number" min="1" max="12" name="mes-nasc" /></td>
+				<td>
+					<select>
+					   <option></option> <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+					   <option>5</option> <option>6</option> <option>7</option> <option>8</option> <option>9</option>
+					   <option>10</option> <option>11</option> <option>12</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td>Ano do Nascimento:</td>
@@ -55,8 +71,13 @@
 			</tr>
 
 			<tr style="display: inline-block;">
-				<td><input type="submit" name="acao" value="Busca Avancada" /></td>
-				<td><input type="submit" name="acao" value="Cancelar" /></td>
+				<td>
+					<form action="resposta-busca-avancada.php" method="POST">
+						<input type="hidden" name="acao" value="buscaavancada" />
+						<input type="submit" value="Busca" />
+					</form>
+				</td>
+				<td><input type="submit" action="../index.php" value="Cancelar" /></td>
 			</tr>
 		</tbody>
 	</table>	
