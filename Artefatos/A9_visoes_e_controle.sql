@@ -76,3 +76,5 @@ GRANT INSERT ON turismo.comentarios_pturistico TO 'estrangeiro', 'empresa';
 /* CRIAÇÃO DE ANUNCIOS */
 GRANT INSERT ON turismo.eventos TO 'empresa';
 GRANT INSERT ON turismo.hospedagens TO 'empresa';
+
+FLUSH PRIVILEGES;
