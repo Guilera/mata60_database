@@ -1,7 +1,7 @@
 <?php
-  include ("conectar-cliente.php");
-  $valor_buscar = $_POST['busca-avancada-cliente'];
-  $grupo = pesquisarClientesAvancado();
+  include ("conectar-cidade.php");
+  $valor_buscar = $_POST['busca-avancada-cidade'];
+  $grupo = pesquisarCidadesAvancado();
 ?>
 <head>
 	<style type="text/css">

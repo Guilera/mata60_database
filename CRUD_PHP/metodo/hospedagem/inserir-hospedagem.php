@@ -43,7 +43,7 @@
 					<select name="userid">
 						<?php foreach ($grupo1 as $anunciantes) { ?>
 					    	<option value="<?=$anunciantes["usuario_id"]?>">
-					    		<?=utf8_encode($anunciantes["nome_fantasia"])?>
+					    		<?=$anunciantes["nome_fantasia"]?>
 					    	</option>
 					    <?php } ?>
 					</select>
@@ -55,7 +55,7 @@
 					<select name="cityid">
 						<?php foreach ($grupo2 as $cidades) { ?>
 					    	<option value="<?=$cidades["cidade_id"]?>">
-					    		<?=utf8_encode($cidades["nome"])?>
+					    		<?=$cidades["nome"]?>
 					    	</option>
 					    <?php } ?>
 					</select>

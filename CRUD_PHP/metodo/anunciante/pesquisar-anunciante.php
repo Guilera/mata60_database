@@ -16,7 +16,7 @@
   
   <div>
     <div class="box">
-      <h3>Resultados para <font color="0000FF"><?=$valor_buscar?></font> :</h3>
+      <h3>Resultados para <font color="0000FF"><?=$valor_buscar?></font> : <?=count($grupo)?></h3>
       <!-- <h3>Resultados para <i><?=$valor_buscar?></i> :</h3> -->
     </div>
     <div class="box" style="float: right;">

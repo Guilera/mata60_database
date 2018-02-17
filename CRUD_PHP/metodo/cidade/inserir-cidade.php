@@ -18,7 +18,7 @@
 					<select name="ufid">
 						<?php foreach ($grupo1 as $ufs) { ?>
 					    	<option value="<?=$ufs["uf_id"]?>">
-					    		<?=utf8_encode($ufs["nome"])?>
+					    		<?=$ufs["nome"]?>
 					    	</option>
 					    <?php } ?>
 					</select>

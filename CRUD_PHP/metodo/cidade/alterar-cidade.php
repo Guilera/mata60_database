@@ -9,7 +9,7 @@
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="cidnome" value="<?=utf8_encode($cidades["cidnome"])?>" size="20" /></td>
+				<td><input type="text" name="cidnome" value="<?=$cidades["cidnome"]?>" size="20" /></td>
 			</tr>
 			<tr>
 				<td>UF:</td>
@@ -17,7 +17,7 @@
 					<select name="ufid">
 						<?php foreach ($grupo as $ufs) { ?>
 					    	<option value="<?=$ufs["uf_id"]?>">
-					    		<?=utf8_encode($ufs["nome"])?>
+					    		<?=$ufs["nome"]?>
 					    	</option>
 					    <?php } ?>
 					</select>

@@ -52,11 +52,9 @@
 	function pesquisar_cidades($valor_pesquisar){
 		$banco = abrirBanco();
 		//$sql = "SELECT * FROM cidades WHERE nome_completo LIKE '%$valor_pesquisar%'";
-		$sql = "SELECT cidades.usuario_id,cidades.nome_completo,"
-			   . " cidades.pais,cidades.data_nasc,usuarios.username"
-			   . " FROM cidades"
-			   . " INNER JOIN usuarios ON cidades.usuario_id = usuarios.usuario_id"
-			   . " WHERE cidades.nome_completo LIKE '%$valor_pesquisar%'";
+		$sql = "SELECT cidades.nome, cidades.cidade_id, ufs.nome as ufnome
+				FROM cidades JOIN ufs USING (uf_id)"
+			   . " WHERE cidades.nome LIKE '%$valor_pesquisar%'";
 	 	$resultado = $banco->query($sql);
 	 	$banco->close();
 	 	while ($row = mysqli_fetch_array($resultado)) {
@@ -75,7 +73,7 @@
 
 	function selectAllCidades(){
 		$banco = abrirBanco();
-		$sql = "SELECT cidades.cidade_id,cidades.nome,ufs.uf_id,ufs.nome as ufnome FROM cidades"
+		$sql = "SELECT cidades.cidade_id,cidades.nome,ufs.nome as ufnome FROM cidades"
 			   . " INNER JOIN ufs USING (uf_id) ORDER BY ufnome,cidades.nome";
 		$resultado = $banco->query($sql);
 		$banco->close();
