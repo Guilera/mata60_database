@@ -4,7 +4,7 @@
 		if ($_POST["acao"]=="Criar") {
 			inserir_hospedagem();
 		}
-		else if ($_POST["acao"]=="alterar-hospedagem") {
+		else if ($_POST["acao"]=="Atualizar") {
 			alterar_hospedagem();
 		}
 		else if ($_POST["acao"]=="pesquisar-hospedagem") {
@@ -15,9 +15,6 @@
 		}
 		else if ($_POST["acao"]=="busca-avancada-hospedagem") {
 			excluir_hospedagem();
-		}
-		else if ($_POST["acao"]=="Cancelar") {
-			voltarhospedagens();
 		}
 		//else voltarIndex();
 	}
@@ -43,9 +40,12 @@
 
 	function alterar_hospedagem(){
 		$banco = abrirBanco();
-		$sql = "UPDATE hospedagens SET nome_completo='{$_POST["nome_completo"]}',"
-				." pais='{$_POST["pais"]}', data_nasc='{$_POST["data_nasc"]}'"
-				." WHERE usuario_id='{$_POST["usuario_id"]}'";
+		$sql = "UPDATE hospedagens SET nome='{$_POST["nome"]}',tipo='{$_POST["tipo"]}',"
+				." descricao='{$_POST["descricao"]}',valor_diaria='{$_POST["valor_diaria"]}',"
+				." logradouro='{$_POST["logradouro"]}',bairro='{$_POST["bairro"]}',"
+				." numero='{$_POST["numero"]}',usuario_id='{$_POST["anuncid"]}',"
+				." cidade_id='{$_POST["cidid"]}'"
+				." WHERE hospedagem_id='{$_POST["hospedagem_id"]}'";
 		$banco->query($sql);
 		$banco->close();
 		voltarhospedagens();
@@ -53,12 +53,14 @@
 
 	function pesquisar_hospedagens($valor_pesquisar){
 		$banco = abrirBanco();
-		//$sql = "SELECT * FROM hospedagens WHERE nome_completo LIKE '%$valor_pesquisar%'";
-		$sql = "SELECT hospedagens.usuario_id,hospedagens.nome_completo,"
-			   . " hospedagens.pais,hospedagens.data_nasc,usuarios.username"
+		$sql = "SELECT hospedagem_id,hospedagens.nome,hospedagens.tipo,hospedagens.descricao,"
+			   . " hospedagens.valor_diaria,"
+			   . " hospedagens.logradouro,hospedagens.bairro,hospedagens.numero,hospedagens.usuario_id,"
+			   . " hospedagens.cidade_id,anunciantes.nome_fantasia,anunciantes.usuario_id,cidades.nome as cidnome"
 			   . " FROM hospedagens"
-			   . " INNER JOIN usuarios ON hospedagens.usuario_id = usuarios.usuario_id"
-			   . " WHERE hospedagens.nome_completo LIKE '%$valor_pesquisar%'";
+			   . " INNER JOIN anunciantes USING (usuario_id)"
+			   . " INNER JOIN cidades USING (cidade_id)"
+			   . " WHERE hospedagens.nome LIKE '%$valor_pesquisar%'";
 	 	$resultado = $banco->query($sql);
 	 	$banco->close();
 	 	while ($row = mysqli_fetch_array($resultado)) {
@@ -66,19 +68,29 @@
 	 	}
 	 	return $grupo;
 	}
-
+		
 	function excluir_hospedagem(){
 		$banco = abrirBanco();
-		$sql = "DELETE FROM hospedagens WHERE usuario_id='{$_POST["usuario_id"]}'";
-		$banco->query($sql);
-		$banco->close();
-		voltarhospedagens();
+		$sql = "DELETE FROM hospedagens WHERE hospedagem_id='{$_POST["hospedagem_id"]}'";
+		$ok = $banco->query($sql);
+		if(!$ok){ ?>
+			<script type="text/javascript">
+				alert('Não foi possivel deletar\n' + '<?php echo $banco->error; ?>');
+				location = "../../pages/hospedagens.php";
+			</script>
+			<?php
+			$banco->close();
+		} else {
+			$banco->close();
+			voltarhospedagens();
+		}
 	}
 
 	function selectAllHospedagens(){
 		$banco = abrirBanco();
 		//$sql = "SELECT * FROM hospedagens ORDER BY nome";
-		$sql = "SELECT hospedagens.nome,hospedagens.tipo,hospedagens.descricao,hospedagens.valor_diaria,"
+		$sql = "SELECT hospedagem_id,hospedagens.nome,hospedagens.tipo,hospedagens.descricao,"
+			   . " hospedagens.valor_diaria,"
 			   . " hospedagens.logradouro,hospedagens.bairro,hospedagens.numero,hospedagens.usuario_id,"
 			   . " hospedagens.cidade_id,anunciantes.nome_fantasia,anunciantes.usuario_id,cidades.nome as cidnome"
 			   . " FROM hospedagens"
@@ -95,17 +107,11 @@
 
 	function selectIdHospedagem($hospedagem_id){
 		$banco = abrirBanco();
-		$sql = "SELECT hospedagens.nome,hospedagens.tipo,hospedagens.descricao,"
-		   . " hospedagens.valor_diaria,hospedagens.logradouro,hospedagens.bairro,"
-		   . " hospedagens.numero,hospedagens.usuario_id,hospedagens.cidade_id,anunciantes.nome,"
-		   . " anunciantes.usuario_id,cidades.cidade_id"
-		   . " FROM hospedagens"
-		   . " INNER JOIN anunciantes ON hospedagens.usuario_id = anunciantes.usuario_id"
-		   . " WHERE anunciantes.usuario_id=".$hospedagem_id." INNER JOIN cidades ON hospedagens.cidade_id = cidades.cidade_id";
+		$sql = "SELECT * FROM hospedagens WHERE hospedagem_id=".$hospedagem_id;
 		$resultado = $banco->query($sql);
 		$banco->close();
-		$pessoa = mysqli_fetch_assoc($resultado);
-		return $pessoa;
+		$hospedagem = mysqli_fetch_assoc($resultado);
+		return $hospedagem;
 	}
 
 	function getNomeAnunciantes(){

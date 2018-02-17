@@ -9,7 +9,7 @@
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" value="" /></td>
+				<td><input type="text" name="nome" value="" required /></td>
 			</tr>
 			<tr>
 				<td>UF:</td>
@@ -24,10 +24,12 @@
 					</select>
 				</td>
 			</tr>
-			<tr style="display: inline-block;">
+			<tr>
 				<td><input type="submit" name="acao" value="Criar" /></td>
-				<td><input type="submit" name="acao" value="Cancelar" /></td>
 			</tr>
 		</tbody>
 	</table>	
+</form>
+<form action="../../pages/cidades.php">
+	<input type="submit" value="Cancelar">
 </form>

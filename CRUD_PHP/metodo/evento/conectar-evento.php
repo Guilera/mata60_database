@@ -1,10 +1,10 @@
 <?php
 	
 	if (isset($_POST["acao"])) {
-		if ($_POST["acao"]=="inserir-evento") {
+		if ($_POST["acao"]=="Criar") {
 			inserir_evento();
 		}
-		else if ($_POST["acao"]=="alterar-evento") {
+		else if ($_POST["acao"]=="Atualizar") {
 			alterar_evento();
 		}
 		else if ($_POST["acao"]=="pesquisar-evento") {
@@ -29,18 +29,62 @@
 
  	function inserir_evento(){
 	 	$banco = abrirBanco();
-	 	$sql = "INSERT INTO eventos (nome_completo, pais, data_nasc, pessoa_id)"
-	 			. " VALUES ('{$_POST["nome_completo"]}','{$_POST["pais"]}','{$_POST["data_nasc"]}', LAST_INSERT_ID())";
-	 	$banco->query($sql);
-	 	$banco->close();
-	 	voltareventos();
+
+	 	$nome = $_POST["nome"];
+	 	$tipo = $_POST["tipo"];
+	 	$descricao = $_POST["descricao"];
+	 	$data_hora = $_POST["data"]." ".$_POST["hora"].":00";
+	 	$valor = $_POST["valor"];
+	 	$logradouro = $_POST["logradouro"];
+	 	$bairro = $_POST["bairro"];
+	 	$numero = $_POST["numero"];
+
+	 	$sql = "INSERT INTO eventos (nome,tipo,";
+	 	if($descricao){$sql .= "descricao,";}
+	 	$sql .= "data_hora,";
+	 	if($valor){$sql .= "valor,";}
+	 	if($logradouro){$sql .= "logradouro,";}
+	 	if($bairro){$sql .= "bairro,";}
+	 	if($numero){$sql .= "numero,";}
+	 	$sql .= "usuario_id,cidade_id) VALUES (";
+	 	$sql .= "\"".$nome."\"".",\"".$tipo."\",";
+	 	if($descricao){$sql .= "\"".$descricao."\",";}
+	 	$sql .= "'".$data_hora."',";
+	 	if($valor){$sql .= $valor.",";}
+	 	if($logradouro){$sql .= "\"".$logradouro."\",";}
+	 	if($bairro){$sql .= "\"".$bairro."\",";}
+	 	if($numero){$sql .= $numero.",";}
+	 	$sql .= $_POST["anuncid"].",";
+	 	$sql .= $_POST["cidid"].")";
+		//var_dump($sql);
+
+	 	$ok = $banco->query($sql);
+		$banco->close();
+		voltareventos();
 	}
 
 	function alterar_evento(){
 		$banco = abrirBanco();
-		$sql = "UPDATE eventos SET nome_completo='{$_POST["nome_completo"]}',"
-				." pais='{$_POST["pais"]}', data_nasc='{$_POST["data_nasc"]}'"
-				." WHERE pessoa_id='{$_POST["pessoa_id"]}'";
+		
+		$nome = $_POST["nome"];
+	 	$tipo = $_POST["tipo"];
+	 	$descricao = $_POST["descricao"];
+	 	$data_hora = $_POST["data"]." ".$_POST["hora"].":00";
+	 	$valor = $_POST["valor"];
+	 	$logradouro = $_POST["logradouro"];
+	 	$bairro = $_POST["bairro"];
+	 	$numero = $_POST["numero"];
+
+	 	$sql = "UPDATE eventos SET nome=\"".$nome."\",tipo=\"".$tipo."\"";
+	 	if($descricao){$sql .= ",descricao=\"".$descricao."\"";}
+	 	$sql .= ",data_hora='".$data_hora."'";
+	 	if($valor){$sql .= ",valor=".$valor;}
+	 	if($logradouro){$sql .= ",logradouro=\"".$logradouro."\"";}
+	 	if($bairro){$sql .= ",bairro=\"".$bairro."\"";}
+	 	if($numero){$sql .= ",numero=".$numero;}
+	 	$sql .= ",usuario_id=".$_POST["anuncid"].",cidade_id=".$_POST["cidid"];
+	 	$sql .= " WHERE eventos.evento_id={$_POST["evento_id"]}";
+		//var_dump($sql);
 		$banco->query($sql);
 		$banco->close();
 		voltareventos();
@@ -48,7 +92,8 @@
 
 	function pesquisar_eventos($valor_pesquisar){
 		$banco = abrirBanco();
-		$sql = "SELECT * FROM eventos WHERE nome_completo LIKE '%$valor_pesquisar%'";
+		$sql = "SELECT * FROM eventos WHERE nome LIKE '%$valor_pesquisar%'"
+			   . "OR tipo LIKE '%$valor_pesquisar%'";
 	 	$resultado = $banco->query($sql);
 	 	$banco->close();
 	 	while ($row = mysqli_fetch_array($resultado)) {
@@ -84,15 +129,27 @@
 
 	function excluir_evento(){
 		$banco = abrirBanco();
-		$sql = "DELETE FROM eventos WHERE pessoa_id='{$_POST["pessoa_id"]}'";
-		$banco->query($sql);
-		$banco->close();
-		voltareventos();
+		$sql = "DELETE FROM eventos WHERE evento_id='{$_POST["evento_id"]}'";
+		$ok = $banco->query($sql);
+		if(!$ok){ ?>
+			<script type="text/javascript">
+				alert('Não foi possivel deletar\n' + '<?php echo $banco->error; ?>');
+				location = "../../pages/eventos.php";
+			</script>
+			<?php
+			$banco->close();
+		} else {
+			$banco->close();
+			voltareventos();
+		}
+		//$banco->query($sql);
+		//$banco->close();
+		//voltareventos();
 	}
 
 	function selectAlleventos(){
 		$banco = abrirBanco();
-		$sql = "SELECT eventos.nome,tipo,descricao,data_hora,valor,logradouro,eventos.usuario_id,"
+		$sql = "SELECT evento_id,eventos.nome,tipo,descricao,data_hora,valor,logradouro,eventos.usuario_id,"
 			   . " eventos.cidade_id,anunciantes.nome_fantasia as anuncnome,cidades.nome as cidnome"
 			   . " FROM eventos INNER JOIN anunciantes USING (usuario_id)"
 			   . " INNER JOIN cidades USING (cidade_id) ORDER BY nome";
@@ -104,13 +161,35 @@
 		return $grupo;
 	}
 
-	function selectIdevento($evento_id){
+	function selectIdEvento($evento_id){
 		$banco = abrirBanco();
 		$sql = "SELECT * FROM eventos WHERE evento_id=".$evento_id;
 		$resultado = $banco->query($sql);
 		$banco->close();
-		$pessoa = mysqli_fetch_assoc($resultado);
-		return $pessoa;
+		$evento = mysqli_fetch_assoc($resultado);
+		return $evento;
+	}
+
+	function getNomeAnunciantes(){
+		$banco = abrirBanco();
+		$sql = "SELECT nome_fantasia,usuario_id FROM anunciantes";
+		$resultado = $banco->query($sql);
+		$banco->close();
+		while ($row = mysqli_fetch_array($resultado)) {
+			$grupo[] = $row;
+		}
+		return $grupo;
+	}
+
+	function getNomeCidades(){
+		$banco = abrirBanco();
+		$sql = "SELECT nome,cidade_id FROM cidades";
+		$resultado = $banco->query($sql);
+		$banco->close();
+		while ($row = mysqli_fetch_array($resultado)) {
+			$grupo[] = $row;
+		}
+		return $grupo;
 	}
 
 	function voltarIndex(){

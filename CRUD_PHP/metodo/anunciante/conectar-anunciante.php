@@ -16,9 +16,6 @@
 		else if ($_POST["acao"]=="Busca Avancada") {
 			pesquisarAnunciantesAvancado();
 		}
-		else if ($_POST["acao"]=="Cancelar") {
-			voltaranunciantes();
-		}
 		//else voltarIndex();
 	}
 

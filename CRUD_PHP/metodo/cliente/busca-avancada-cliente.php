@@ -21,7 +21,6 @@
 		   margin: 0;
 		}	
 	</style>
-	
 </head>
 
 <h1>Busca Avançada<br></h1>

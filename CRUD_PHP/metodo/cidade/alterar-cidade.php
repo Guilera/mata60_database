@@ -9,7 +9,7 @@
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="cidnome" value="<?=$cidades["cidnome"]?>" size="20" /></td>
+				<td><input type="text" name="cidnome" value="<?=$cidades["cidnome"]?>" size="20" required /></td>
 			</tr>
 			<tr>
 				<td>UF:</td>
@@ -28,8 +28,10 @@
 					<input type="hidden" name="cidade_id" value="<?=$cidades["cidade_id"]?>" />
 					<input type="submit" name="acao" value="Atualizar" />
 				</td>
-				<td><input type="submit" name="acao" value="Cancelar" /></td>
 			</tr>
 		</tbody>
 	</table>	
+</form>
+<form action="../../pages/cidades.php">
+	<input type="submit" value="Cancelar">
 </form>

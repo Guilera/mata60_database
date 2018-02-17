@@ -16,7 +16,6 @@
 
 <body>
   <div>
-    <!-- <div class="box" style="float: left;"> -->
     <div class="box">
       <form name="inserir" action="../metodo/evento/inserir-evento.php" method="POST">
         <input type="hidden" name="acao" value="inserir" />
@@ -34,8 +33,8 @@
      </form>
     </div>
     <div class="box" style="float: right;">
-      <form name="pesquisar" action="../metodo/evento/pesquisar-evento.php" method="POST">
-        <input type="text" name="pesquisar" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
+      <form name="pesquisar-evento" action="../metodo/evento/pesquisar-evento.php" method="POST">
+        <input type="text" name="pesquisar-evento" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
         <button type="submit" class="btn btn-primary">Procurar</button>
       </form>
     </div>
@@ -72,7 +71,7 @@
           <td><?=$eventos["cidnome"]?></td>
           <td>
             <form name="alterar-evento" action="../metodo/evento/alterar-evento.php" method="POST">
-              <input type="hidden" name="hospedagem_id" value="<?=$eventos["evento_id"]?>" />
+              <input type="hidden" name="evento_id" value="<?=$eventos["evento_id"]?>" />
               <input type="image" width="30" src="../imgs/i-editar.png">
             </form>
           </td>
@@ -90,14 +89,6 @@
       
     </tbody>
   </table>
-    
-  <?php
-    function formatoData($data) {
-      $array = explode("-", $data);
-      $novaData = $array[2]."/".$array[1]."/".$array[0];
-      return $novaData;
-    }
-  ?>
 </body>
 
 </html>

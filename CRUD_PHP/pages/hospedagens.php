@@ -34,8 +34,8 @@
      </form>
     </div>
     <div class="box" style="float: right;">
-      <form name="pesquisar" action="../metodo/hospedagem/pesquisar-hospedagem.php" method="POST">
-        <input type="text" name="pesquisar" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
+      <form name="pesquisar-hospedagem" action="../metodo/hospedagem/pesquisar-hospedagem.php" method="POST">
+        <input type="text" name="pesquisar-hospedagem" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
         <button type="submit" class="btn btn-primary">Procurar</button>
       </form>
     </div>

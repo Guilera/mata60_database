@@ -16,9 +16,6 @@
 		else if ($_POST["acao"]=="busca-avancada-cidade") {
 			
 		}
-		else if ($_POST["acao"]=="Cancelar") {
-			voltarcidades();
-		}
 		//else voltarIndex();
 	}
 

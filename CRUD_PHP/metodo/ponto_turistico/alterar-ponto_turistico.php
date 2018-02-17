@@ -36,3 +36,6 @@
 		</tbody>
 	</table>	
 </form>
+<form action="../../pages/pturistico.php">
+	<input type="submit" value="Cancelar">
+</form>

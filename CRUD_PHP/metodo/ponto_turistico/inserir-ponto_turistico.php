@@ -1,36 +1,37 @@
 <?php
 	
 ?>
-<h1>Adicionar Cliente<br></h1>
+<h1>Adicionar Ponto Turístico<br></h1>
 <meta charset="utf-8">
-<form name="dadosPessoa" action="conectar-cliente.php" method="POST">
+<form name="dadosPTuristico" action="conectar-ponto_turistico.php" method="POST">
 	<table>
 		<tbody>
 			<tr>
-				<td>Full name:</td>
+				<td>Nome:</td>
 				<td><input type="text" name="nome_completo" value="" /></td>
 			</tr>
 			<tr>
-				<td>Username:</td>
+				<td>Tipo:</td>
 				<td><input type="text" name="username" value="" /></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
+				<td>Descrição:</td>
 				<td><input type="password" name="senha" value="" /></td>
 			</tr>
 			<tr>
-				<td>Country:</td>
+				<td>Logradouro:</td>
 				<td><input type="text" name="pais" value="" /></td>
 			</tr>
 			<tr>
-				<td>Birth:</td>
+				<td>Bairro:</td>
 				<td><input type="date" name="data_nasc" value="" /></td>
 			</tr>
-			<tr  style="display: inline-block;">
-				<td><input type="hidden" name="acao" value="inserir-cliente" /></td>
-				<td><input type="submit" value="Criar" name="Criar" /></td>
-				<td><input type="submit" action="../../pages/clientes.php" value="Cancelar" /></td>
+			<tr>
+				<td><input type="submit" name="acao" value="Criar" /></td>
 			</tr>
 		</tbody>
 	</table>	
+</form>
+<form action="../../pages/pturistico.php">
+	<input type="submit" value="Cancelar">
 </form>
