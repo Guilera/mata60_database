@@ -45,6 +45,7 @@
 				." uf_id='{$_POST["ufid"]}'"
 				." WHERE cidade_id='{$_POST["cidade_id"]}'";
 		$banco->query($sql);
+
 		$banco->close();
 		voltarcidades();
 	}
@@ -66,9 +67,18 @@
 	function excluir_cidade(){
 		$banco = abrirBanco();
 		$sql = "DELETE FROM cidades WHERE cidade_id='{$_POST["cidade_id"]}'";
-		$banco->query($sql);
-		$banco->close();
-		voltarcidades();
+		$ok = $banco->query($sql);
+		if(!$ok){ ?>
+			<script type="text/javascript">
+				alert('Não foi possivel deletar\n' + '<?php echo $banco->error; ?>');
+				location = "../../pages/cidades.php";
+			</script>
+			<?php
+			$banco->close();
+		} else {
+			$banco->close();
+			voltarcidades();
+		}
 	}
 
 	function selectAllCidades(){
