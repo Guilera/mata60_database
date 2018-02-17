@@ -49,8 +49,11 @@ JOIN
 	
 /* CONTROLE DE ACESSO */
 CREATE USER 'admin' IDENTIFIED BY 'admin_turismo';
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin_turismo';
 CREATE USER 'estrangeiro' IDENTIFIED BY 'estrangeiro_turismo';
+CREATE USER 'estrangeiro'@'localhost' IDENTIFIED BY 'estrangeiro_turismo';
 CREATE USER 'empresa' IDENTIFIED BY 'empresa_turismo';
+CREATE USER 'empresa'@'localhost' IDENTIFIED BY 'empresa_turismo';
 
 /* O DBA TEM TOTAL ACESSO NESTE BANCO */
 GRANT ALL ON turismo.* TO 'admin';
