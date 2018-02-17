@@ -1,41 +1,53 @@
 <?php
-	include("conectar-cliente.php");
-	$clientes = selectIdCliente($_POST["usuario_id"]);
-	//var_dump($pessoa);
+	include("conectar-ponto_turistico.php");
+	$pontos_turisticos = selectIdPonto_Turistico($_POST["ponto_turistico_id"]);
+	$grupo = getNomeCidades();
 ?>
 <meta charset="utf-8">
-<form name="dadosPessoa" action="conectar-cliente.php" method="POST">
+<form name="dadosPontoTuristico" action="conectar-ponto_turistico.php" method="POST">
 	<table>
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome_completo" value="<?=$clientes["nome_completo"]?>" size="20" /></td>
+				<td><input type="text" name="nome" value="<?=$pontos_turisticos["nome"]?>" size="20" /></td>
 			</tr>
 			<tr>
-				<td>Usuário:</td>
-				<td><input type="text" name="username" value="<?=$clientes["username"]?>" size="20" /></td>
+				<td>Tipo:</td>
+				<td><input type="text" name="tipo" value="<?=$pontos_turisticos["tipo"]?>" size="20" /></td>
 			</tr>
 			<tr>
-				<td>Senha:</td>
-				<td><input type="text" name="senha" value="<?=$clientes["senha"]?>" size="20" /></td>
+				<td>Descrição:</td>
+				<td><input type="text" name="descricao" value="<?=$pontos_turisticos["descricao"]?>" size="20" /></td>
 			</tr>
 			<tr>
-				<td>País:</td>
-				<td><input type="text" name="pais" value="<?=$clientes["pais"]?>" size="20"/></td>
+				<td>Logradouro:</td>
+				<td><input type="text" name="logradouro" value="<?=$pontos_turisticos["logradouro"]?>" size="20"/></td>
 			</tr>
 			<tr>
-				<td>Nascimento:</td>
-				<td><input type="date" name="data_nasc" value="<?=$clientes["data_nasc"]?>" /></td>
+				<td>Bairro:</td>
+				<td><input type="text" name="bairro" value="<?=$pontos_turisticos["bairro"]?>" /></td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="acao" value="alterar-cliente" />
-				<input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
+				<td>Cidade:</td>
+				<td>
+					<select name="cidid">
+						<?php foreach ($grupo as $cidades) { ?>
+					    	<option value="<?=$cidades["cidade_id"]?>">
+					    		<?=$cidades["nome"]?>
+					    	</option>
+					    <?php } ?>
+					</select>
 				</td>
-				<td><input type="submit" value="Atualizar" name="Atualizar" /></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="ponto_turistico_id" value="<?=$pontos_turisticos["ponto_turistico_id"]?>" />
+					<input type="submit" name="acao" value="Atualizar" />
+				</td>
 			</tr>
 		</tbody>
 	</table>	
 </form>
-<form action="../../pages/pturistico.php">
+<form action="../../pages/pontos_turisticos.php">
 	<input type="submit" value="Cancelar">
 </form>

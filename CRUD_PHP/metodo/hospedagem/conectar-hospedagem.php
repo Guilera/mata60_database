@@ -116,7 +116,7 @@
 
 	function getNomeAnunciantes(){
 		$banco = abrirBanco();
-		$sql = "SELECT nome_fantasia,usuario_id FROM anunciantes";
+		$sql = "SELECT nome_fantasia,usuario_id FROM anunciantes ORDER BY nome_fantasia";
 		$resultado = $banco->query($sql);
 		$banco->close();
 		while ($row = mysqli_fetch_array($resultado)) {
@@ -127,7 +127,7 @@
 
 	function getNomeCidades(){
 		$banco = abrirBanco();
-		$sql = "SELECT nome,cidade_id FROM cidades";
+		$sql = "SELECT nome,cidade_id FROM cidades ORDER BY nome";
 		$resultado = $banco->query($sql);
 		$banco->close();
 		while ($row = mysqli_fetch_array($resultado)) {

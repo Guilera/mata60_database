@@ -2,7 +2,6 @@
 <?php
   include ("../metodo/ponto_turistico/conectar-ponto_turistico.php");
   $grupo = selectAllPontos_Turisticos();
-  //var_dump($grupo);
 ?>
 
 <head>
@@ -19,13 +18,13 @@
   <div>
     <!-- <div class="box" style="float: left;"> -->
     <div class="box">
-      <form name="inserir-ponto_turistico" action="../metodo/inserir-ponto_turistico.php" method="POST">
+      <form name="inserir-ponto_turistico" action="../metodo/ponto_turistico/inserir-ponto_turistico.php" method="POST">
         <input type="hidden" name="acao" value="inserir" />
         <input type="submit" value="Adicionar Ponto Turístico" name="inserir" /> 
      </form>
     </div>
     <div class="box">
-     <form name="busca-avancada-ponto_turistico" action="metodo/busca-avancada-ponto_turistico.php" method="POST">
+     <form name="busca-avancada-ponto_turistico" action="../metodo/ponto_turistico/busca-avancada-ponto_turistico.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
     </div>
@@ -35,8 +34,8 @@
      </form>
     </div>
     <div class="box" style="float: right;">
-      <form name="pesquisar-ponto_turistico" action="metodo/pesquisar.php" method="POST">
-        <input type="text" name="pesquisar" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
+      <form name="pesquisar-ponto_turistico" action="../metodo/ponto_turistico/pesquisar-ponto_turistico.php" method="POST">
+        <input type="text" name="pesquisar-ponto_turistico" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
         <button type="submit" class="btn btn-primary">Procurar</button>
       </form>
     </div>
@@ -69,13 +68,13 @@
           <td><?=$pontos_turisticos["cidnome"]?></td>
           <td>
             <form name="alterar-ponto_turistico" action="../metodo/ponto_turistico/alterar-ponto_turistico.php" method="POST">
-              <input type="hidden" name="ponto_turistico_id" value="<?=$ponto_turisticos["ponto_turistico_id"]?>" />
+              <input type="hidden" name="ponto_turistico_id" value="<?=$pontos_turisticos["ponto_turistico_id"]?>" />
               <input type="image" width="30" src="../imgs/i-editar.png">
             </form>
           </td>
           <td>
             <form name="excluir-ponto_turistico" action="../metodo/ponto_turistico/conectar-ponto_turistico.php" method="POST">
-              <input type="hidden" name="ponto_turistico_id" value="<?=$ponto_turisticos["ponto_turistico_id"]?>" />
+              <input type="hidden" name="ponto_turistico_id" value="<?=$pontos_turisticos["ponto_turistico_id"]?>" />
               <input type="hidden" name="acao" value="excluir-ponto_turistico" />
               <input type="image" width="30" src="../imgs/i-excluir.png">
             </form>

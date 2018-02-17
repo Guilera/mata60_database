@@ -27,6 +27,18 @@
 		return $conexao;
 	}
 
+	function inserir_evento2(){
+	 	$banco = abrirBanco();
+	 	$sql = "INSERT INTO eventos (nome, tipo, descricao, data_hora, valor, logradouro, bairro, numero,"
+	 		   . " usuario_id, cidade_id) VALUES ('{$_POST["nome"]}','{$_POST["tipo"]}',"
+	 		   . "'{$_POST["descricao"]}','{$_POST["data"]}"." "."{$_POST["hora"]}".":00'".","
+	 		   . "'{$_POST["valor"]}','{$_POST["logradouro"]}','{$_POST["bairro"]}','{$_POST["numero"]}',"
+	 		   . "'{$_POST["anuncid"]}','{$_POST["cidid"]}')";
+	 	$ok = $banco->query($sql);
+		$banco->close();
+		voltareventos();
+	}
+
  	function inserir_evento(){
 	 	$banco = abrirBanco();
 

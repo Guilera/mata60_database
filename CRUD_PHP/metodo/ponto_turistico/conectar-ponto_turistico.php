@@ -1,10 +1,10 @@
 <?php
 	
 	if (isset($_POST["acao"])) {
-		if ($_POST["acao"]=="inserir-ponto_turistico") {
+		if ($_POST["acao"]=="Criar") {
 			inserir_ponto_turistico();
 		}
-		else if ($_POST["acao"]=="alterar-ponto_turistico") {
+		else if ($_POST["acao"]=="Atualizar") {
 			alterar_ponto_turistico();
 		}
 		else if ($_POST["acao"]=="pesquisar-ponto_turistico") {
@@ -16,7 +16,7 @@
 		else if ($_POST["acao"]=="busca-avancada-ponto_turistico") {
 			excluir_ponto_turistico();
 		}
-		else voltarIndex();
+		//else voltarIndex();
 	}
 
 	function abrirBanco(){
@@ -29,28 +29,20 @@
 
  	function inserir_ponto_turistico(){
 	 	$banco = abrirBanco();
-	 	$sql = "INSERT INTO pontos_turisticos (nome_completo, pais, data_nasc, usuario_id)"
-	 			. " VALUES ('{$_POST["nome_completo"]}','{$_POST["pais"]}','{$_POST["data_nasc"]}', LAST_INSERT_ID())";
+	 	$sql = "INSERT INTO pontos_turisticos (nome, tipo, descricao, logradouro, bairro, cidade_id)"
+	 			. " VALUES ('{$_POST["nome"]}','{$_POST["tipo"]}','{$_POST["descricao"]}','{$_POST["logradouro"]}',"
+	 			. "'{$_POST["bairro"]}','{$_POST["cidid"]}')";
 	 	$banco->query($sql);
 	 	$banco->close();
 	 	voltarpontos_turisticos();
 	}
 
-	function inserir_varios_pontos_turisticos($valor){
-		$banco = abrirBanco();
-		//$sql = "SELECT * FROM pontos_turisticos WHERE nome_completo LIKE '%$valor_pesquisar%'";
-		$sql = "'%$valor%'";
-	 	$resultado = $banco->query($sql);
-	 	$banco->close();
-	 }
-
 	function alterar_ponto_turistico(){
 		$banco = abrirBanco();
-		$sql = "UPDATE usuarios SET username='{$_POST["username"]}' WHERE usuario_id='{$_POST["usuario_id"]}'";
-		$banco->query($sql);
-		$sql = "UPDATE pontos_turisticos SET nome_completo='{$_POST["nome_completo"]}',"
-				." pais='{$_POST["pais"]}', data_nasc='{$_POST["data_nasc"]}'"
-				." WHERE usuario_id='{$_POST["usuario_id"]}'";
+		$sql = "UPDATE pontos_turisticos SET nome='{$_POST["nome"]}',tipo='{$_POST["tipo"]}',"
+				." descricao='{$_POST["descricao"]}', logradouro='{$_POST["logradouro"]}',"
+				. "bairro='{$_POST["bairro"]}',cidade_id='{$_POST["cidid"]}'"
+				." WHERE ponto_turistico_id='{$_POST["ponto_turistico_id"]}'";
 		$banco->query($sql);
 		$banco->close();
 		voltarpontos_turisticos();
@@ -59,11 +51,12 @@
 	function pesquisar_pontos_turisticos($valor_pesquisar){
 		$banco = abrirBanco();
 		//$sql = "SELECT * FROM pontos_turisticos WHERE nome_completo LIKE '%$valor_pesquisar%'";
-		$sql = "SELECT pontos_turisticos.usuario_id,pontos_turisticos.nome_completo,"
-			   . " pontos_turisticos.pais,pontos_turisticos.data_nasc,usuarios.username"
+		$sql = "SELECT ponto_turistico_id,pontos_turisticos.nome,tipo,descricao,logradouro,"
+			   . " bairro, pontos_turisticos.cidade_id,cidades.cidade_id,cidades.nome as cidnome"
 			   . " FROM pontos_turisticos"
-			   . " INNER JOIN usuarios ON pontos_turisticos.usuario_id = usuarios.usuario_id"
-			   . " WHERE pontos_turisticos.nome_completo LIKE '%$valor_pesquisar%'";
+			   . " INNER JOIN cidades USING (cidade_id)"
+			   . " WHERE pontos_turisticos.nome LIKE '%$valor_pesquisar%'"
+			   . " OR tipo LIKE '%$valor_pesquisar%'";
 	 	$resultado = $banco->query($sql);
 	 	$banco->close();
 	 	while ($row = mysqli_fetch_array($resultado)) {
@@ -72,71 +65,29 @@
 	 	return $grupo;
 	 }
 
-	// Nao funcionando:
-	//function pesquisarPessoas($valor_pesquisar){
-	//	$banco = abrirBanco();
-	//	$sql = "SELECT * FROM pessoa LIKE '%$valor_pesquisar%'";
-	//	$resultado1 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE nascimento LIKE '%$valor_pesquisar%'";
-	//	$resultado2 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE telefone LIKE '%$valor_pesquisar%'";
-	//	$resultado3 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE endereco LIKE '%$valor_pesquisar%'";
-	//	$resultado4 = $banco->query($sql);
-	//	$banco->close();
-	//	while ($row = mysqli_fetch_array($resultado1)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado2)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado3)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado4)) {
-	//		$grupo[] = $row;
-	//	}
-	//	return $grupo;
-	//}
-
-	function pesquisarpontos_turisticosAvancado($nome, $nascimento, $telefone, $endereco){
-		$banco = abrirBanco();
-		if(!empty($nome)) {
-			$sql = "SELECT * FROM pontos_turisticos WHERE nome LIKE '%$nome%'";
-			$resultado = $banco->query($sql);
-		}
-		if(!empty($nascimento)) {
-			$sql = "SELECT * FROM pontos_turisticos WHERE nascimento LIKE '%$nascimento%'";
-			$resultado = $banco->query($sql);
-		}
-		if(!empty($telefone)) {
-			$sql = "SELECT * FROM pontos_turisticos WHERE telefone LIKE '%$telefone%'";
-			$resultado = $banco->query($sql);
-		}
-		if(!empty($endereco)) {
-			$sql = "SELECT * FROM pontos_turisticos WHERE endereco LIKE '%$endereco%'";
-			$resultado = $banco->query($sql);
-		}
-		$banco->close();
-		while ($row = mysqli_fetch_array($resultado)) {
-			$grupo[] = $row;
-		}
-		return $grupo;
-	}
-
 	function excluir_ponto_turistico(){
 		$banco = abrirBanco();
-		$sql = "DELETE FROM pontos_turisticos WHERE usuario_id='{$_POST["usuario_id"]}'";
-		$banco->query($sql);
-		$banco->close();
-		voltarpontos_turisticos();
+		$sql = "DELETE FROM pontos_turisticos WHERE ponto_turistico_id='{$_POST["ponto_turistico_id"]}'";
+		$ok = $banco->query($sql);
+		if(!$ok){ ?>
+			<script type="text/javascript">
+				alert('Não foi possivel deletar\n' + '<?php echo $banco->error; ?>');
+				location = "../../pages/pontos_turisticos.php";
+			</script>
+			<?php
+			$banco->close();
+		} else {
+			$banco->close();
+			voltarpontos_turisticos();
+		}
 	}
 
 	function selectAllPontos_Turisticos(){
 		$banco = abrirBanco();
-		$sql = "SELECT pontos_turisticos.nome, tipo,descricao,logradouro,bairro,"
+		$sql = "SELECT ponto_turistico_id,pontos_turisticos.nome,tipo,descricao,"
+				. "logradouro,bairro,pontos_turisticos.cidade_id,cidades.cidade_id,"
 				. "cidades.nome AS cidnome FROM pontos_turisticos"
-				. " INNER JOIN cidades USING (cidade_id) ORDER BY cidades.nome, bairro";
+				. " INNER JOIN cidades USING (cidade_id) ORDER BY pontos_turisticos.nome, bairro";
 		$resultado = $banco->query($sql);
 		$banco->close();
 		while ($row = mysqli_fetch_array($resultado)) {
@@ -145,18 +96,30 @@
 		return $grupo;
 	}
 
-	function selectIdponto_turistico($usuario_id){
+	function selectIdPonto_Turistico($ponto_turistico_id){
 		$banco = abrirBanco();
 		//$sql = "SELECT * FROM pontos_turisticos WHERE usuario_id=".$usuario_id;
-		$sql = "SELECT pontos_turisticos.usuario_id,pontos_turisticos.nome_completo,"
-			   . " pontos_turisticos.pais,pontos_turisticos.data_nasc,usuarios.username,usuarios.senha"
-			   . " FROM pontos_turisticos"
-			   . " INNER JOIN ufs ON pontos_turisticos.usuario_id = usuarios.usuario_id"
-			   . " WHERE pontos_turisticos.usuario_id=".$usuario_id;
+		$sql = "SELECT * FROM pontos_turisticos WHERE ponto_turistico_id=".$ponto_turistico_id;
+		//$sql = "SELECT pontos_turisticos.usuario_id,pontos_turisticos.nome_completo,"
+		//	   . " pontos_turisticos.pais,pontos_turisticos.data_nasc,usuarios.username,usuarios.senha"
+		//	   . " FROM pontos_turisticos"
+		//	   . " INNER JOIN ufs ON pontos_turisticos.usuario_id = usuarios.usuario_id"
+		//	   . " WHERE pontos_turisticos.usuario_id=".$ponto_turistico_id;
 		$resultado = $banco->query($sql);
 		$banco->close();
 		$pessoa = mysqli_fetch_assoc($resultado);
 		return $pessoa;
+	}
+
+	function getNomeCidades(){
+		$banco = abrirBanco();
+		$sql = "SELECT nome,cidade_id FROM cidades ORDER BY nome";
+		$resultado = $banco->query($sql);
+		$banco->close();
+		while ($row = mysqli_fetch_array($resultado)) {
+			$grupo[] = $row;
+		}
+		return $grupo;
 	}
 
 	function voltarIndex(){
