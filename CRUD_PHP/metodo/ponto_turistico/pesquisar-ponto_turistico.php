@@ -1,6 +1,6 @@
 <?php
   include ("conectar-ponto_turistico.php");
-  $valor_buscar = $_POST['pesquisar-ponto_turistico'];
+  $valor_buscar = $_POST['pesq-ponto_turistico'];
   $grupo = pesquisar_pontos_turisticos( $valor_buscar );
 ?>
 

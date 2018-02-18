@@ -1,6 +1,6 @@
 <?php
   include ("conectar-cliente.php");
-  $valor_buscar = $_POST['pesquisar-cliente'];
+  $valor_buscar = $_POST['pesq-cliente'];
   $grupo = pesquisar_clientes( $valor_buscar );
 ?>
 
@@ -17,7 +17,6 @@
   <div>
     <div class="box">
       <h3>Resultados para <font color="0000FF"><?=$valor_buscar?></font> : <?=count($grupo)?></h3>
-      <!-- <h3>Resultados para <i><?=$valor_buscar?></i> :</h3> -->
     </div>
     <div class="box" style="float: right;">
      <form name="voltar" action="../../pages/clientes.php">

@@ -1,6 +1,6 @@
 <?php
   include ("conectar-hospedagem.php");
-  $valor_buscar = $_POST['pesquisar-hospedagem'];
+  $valor_buscar = $_POST['pesq-hospedagem'];
   $grupo = pesquisar_hospedagens( $valor_buscar );
 ?>
 

@@ -1,6 +1,6 @@
 <?php
   include ("conectar-anunciante.php");
-  $valor_buscar = $_POST['pesquisar-anunciante'];
+  $valor_buscar = $_POST['pesq-anunciante'];
   $grupo = pesquisar_anunciantes( $valor_buscar );
 ?>
 

@@ -1,6 +1,6 @@
 <?php
   include ("conectar-evento.php");
-  $valor_buscar = $_POST['pesquisar-evento'];
+  $valor_buscar = $_POST['pesq-evento'];
   $grupo = pesquisar_eventos( $valor_buscar );
 ?>
 
@@ -57,14 +57,14 @@
           <td>
             <form name="alterar-evento" action="../metodo/evento/alterar-evento.php" method="POST">
               <input type="hidden" name="evento_id" value="<?=$eventos["evento_id"]?>" />
-              <input type="image" width="30" src="../imgs/i-editar.png">
+              <input type="image" width="30" src="../../imgs/i-editar.png">
             </form>
           </td>
           <td>
             <form name="excluir-evento" action="../metodo/evento/conectar-evento.php" method="POST">
               <input type="hidden" name="evento_id" value="<?=$eventos["evento_id"]?>" />
               <input type="hidden" name="acao" value="excluir-evento" />
-              <input type="image" width="30" src="../imgs/i-excluir.png">
+              <input type="image" width="30" src="../../imgs/i-excluir.png">
             </form>
           </td>
         </tr>

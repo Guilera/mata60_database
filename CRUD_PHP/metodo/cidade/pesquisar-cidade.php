@@ -1,6 +1,6 @@
 <?php
   include ("conectar-cidade.php");
-  $valor_buscar = $_POST['pesquisar-cidade'];
+  $valor_buscar = $_POST['pesq-cidade'];
   $grupo = pesquisar_cidades( $valor_buscar );
 ?>
 

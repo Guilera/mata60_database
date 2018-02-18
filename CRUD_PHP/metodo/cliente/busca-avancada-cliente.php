@@ -1,7 +1,5 @@
 <?php
-  include ("conectar-cliente.php");
-  $valor_buscar = $_POST['busca-avancada-cliente'];
-  $grupo = pesquisarClientesAvancado();
+
 ?>
 <head>
 	<style type="text/css">
@@ -23,40 +21,57 @@
 	</style>
 </head>
 
-<h1>Busca Avançada<br></h1>
+<h1>Busca Avançada Clientes<br></h1>
 <meta charset="utf-8">
-<form name="dadosPessoa" action="conectar-cliente.php" method="POST">
+<form name="dadosBAC" action="resposta-busca-avancada-cliente.php" method="POST">
 	<table>
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" value="<?=$pessoa["nome"]?>" maxlength="20" size="15" /></td>
+				<td><input type="text" name="nome_completo" value="" maxlength="20" size="15" /></td>
+			</tr>
+			<tr>
+				<td>Usuário:</td>
+				<td><input type="text" name="username" value="" maxlength="20" size="15" /></td>
+			</tr>
+			<tr>
+				<td>País:</td>
+				<td><input type="text" name="pais" value="" maxlength="20" size="15" /></td>
 			</tr>
 			<tr>
 				<td>Dia do Nascimento:</td>
-				<td><input type="number" min="1" max="31" name="dia-nasc" /></td>
+				<td><input type="number" min="1" max="31" name="dianasc" /></td>
 			</tr>
 			<tr>
 				<td>Mês do Nascimento:</td>
-				<td><input type="number" min="1" max="12" name="mes-nasc" /></td>
+				<td><input type="number" min="1" max="12" name="mesnasc" /></td>
 			</tr>
 			<tr>
 				<td>Ano do Nascimento:</td>
-				<td><input type="number" min="1900" max="2030" name="ano-nasc" /></td>
+				<td><input type="number" min="1000" max="2030" name="anonasc" /></td>
 			</tr>
 			<tr>
-				<td>Telefone:</td>
-				<td><input type="text" name="telefone" value="<?=$pessoa["telefone"]?>" maxlength="20" size="15"/></td>
-			</tr>
-			<tr>
-				<td>Endereco:</td>
-				<td><input type="text" name="endereco" value="<?=$pessoa["endereco"]?>" maxlength="20" size="15"/></td>
-			</tr>
-
-			<tr style="display: inline-block;">
-				<td><input type="submit" name="acao" value="Busca Avancada" /></td>
-				<td><input type="submit" name="acao" value="Cancelar" /></td>
+				<td><input type="submit" onclick="JavaScript:return validateForm();" name="acao" value="Busca Avancada" /></td>
 			</tr>
 		</tbody>
 	</table>	
 </form>
+<form action="../../pages/clientes.php">
+	<input type="submit" value="Cancelar">
+</form>
+
+<script type="text/javascript">
+	function validateForm() {
+		var a=document.forms["dadosBAC"]["nome_completo"].value;
+		var b=document.forms["dadosBAC"]["username"].value;
+		var c=document.forms["dadosBAC"]["pais"].value;
+		var d=document.forms["dadosBAC"]["dianasc"].value;
+		var e=document.forms["dadosBAC"]["mesnasc"].value;
+		var f=document.forms["dadosBAC"]["anonasc"].value;
+
+		if (a=="" && b=="" && c=="" && d=="" && e=="" && f=="") {
+			alert("Por favor, preencha ao menos um campo.");
+			return (false);
+		}
+	}
+</script>

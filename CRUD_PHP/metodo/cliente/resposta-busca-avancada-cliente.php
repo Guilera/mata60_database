@@ -1,42 +1,88 @@
 <?php
-  include ("conectar-cliente.php");
-  $valor_nome = $_POST['pesquisar'];
-  $valor_nascimento = $_POST['pesquisar'];
-  $valor_telefone = $_POST['pesquisar'];
-  $valor_endereco = $_POST['pesquisar'];
+	include ("conectar-cliente.php");
+	$nome = $_POST["nome_completo"];
+	$usuario = $_POST["username"];
+	$pais = $_POST["pais"];
+	$dianasc = $_POST["dianasc"];
+	$mesnasc = $_POST["mesnasc"];
+	$anonasc = $_POST["anonasc"];
 
-  $grupo = pesquisarPessoasAvancado($valor_nome,$valor_nascimento,$valor_telefone,$valor_endereco);
+	$clientes = pesquisarClientesAvancado($nome,$usuario,$pais,$dianasc,$mesnasc,$anonasc);
+	var_dump($clientes)
 ?>
 
-<h1>Busca Avançada<br></h1>
-<meta charset="utf-8">
-<form name="dadosPessoa" action="conectar-cliente.php" method="POST">
-	<table>
-		<tbody>
-			<tr>
-				<td>Nome:</td>
-				<td><input type="text" name="nome" value="<?=$pessoa["nome"]?>" maxlength="20" size="15" /></td>
-			</tr>
-			<tr>
-				<td>Nascimento:</td>
-				<td><input type="text" name="nascimento" value="<?=$pessoa["nascimento"]?>" maxlength="10" size="15" /></td>
-			</tr>
-			<tr>
-				<td>Telefone:</td>
-				<td><input type="text" name="telefone" value="<?=$pessoa["telefone"]?>" maxlength="20" size="15"/></td>
-			</tr>
-			<tr>
-				<td>Endereco:</td>
-				<td><input type="text" name="endereco" value="<?=$pessoa["endereco"]?>" maxlength="20" size="15"/></td>
-			</tr>
+<head>
+  <meta charset="UTF-8">
+  <title>Busca Avançada</title>
+  <h1>Resultado Busca Avançada Clientes<br></h1>
+  <link rel="stylesheet" type="text/css" href="../../css/style2.css">
+</head>
 
-			<tr style="display: inline-block;">
-				<td><input type="hidden" name="acao" value="buscaavancada" />
-					<input type="hidden" name="id_pessoa" value="<?=$pessoa["id_pessoa"]?>" />
-				</td>
-				<td><input type="submit" value="Buscar" name="Buscar" /></td>
-				<td><input type="submit" action="../index.php" value="Cancelar" /></td>
-			</tr>
-		</tbody>
-	</table>	
-</form>
+<body>
+  
+  <div>
+    <div class="box">
+      <h3><?=count($clientes)?> resultados: </h3>
+    </div>
+    <div class="box" style="float: right;">
+     <form name="voltar" action="../../pages/clientes.php">
+        <input type="submit" value="Voltar" />
+     </form>
+    </div>
+  </div>
+  <br><br>
+
+  <table class="responstable">
+
+    <thead>
+      <tr>
+        <th width="400">Nome</th>
+        <th width="300">Usuário</th>
+        <th width="250">País Origem</th>
+        <th width="150">Data Nascimento</th>
+        <th width="8"></th>
+        <th width="8"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+      foreach ($grupo as $clientes) { ?>
+          
+        <tr>
+          <td><?=$clientes["nome_completo"]?></td>
+          <td><?=$clientes["username"]?></td>
+          <td><?=$clientes["pais"]?></td>
+          <td><?=formatoData($clientes["data_nasc"])?></td>
+          <td>
+            <form name="alterar-cliente" action="alterar-cliente.php" method="POST">
+              <input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
+              <input type="image" width="30" src="../../imgs/i-editar.png">
+              <!--<input type="submit" value="Editar" name="editar" />-->
+            </form>
+          </td>
+          <td>
+            <form name="excluir-cliente" action="conectar-cliente.php" method="POST">
+              <input type="hidden" name="usuario_id" value="<?=$clientes["usuario_id"]?>" />
+              <input type="hidden" name="acao" value="excluir-cliente" />
+              <input type="image" width="30" src="../../imgs/i-excluir.png">
+              <!--<input type="submit" value="Excluir" name="excluir" />-->
+            </form>
+          </td>
+        </tr>
+
+      <?php 
+      } ?>
+      
+    </tbody>
+  </table>
+    
+  <?php
+    function formatoData($data) {
+      $array = explode("-", $data);
+      $novaData = $array[2]."/".$array[1]."/".$array[0];
+      return $novaData;
+    }
+  ?>
+</body>
+
+</html>

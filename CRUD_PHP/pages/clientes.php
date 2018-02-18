@@ -34,8 +34,8 @@
     </div>
     <div class="box" style="float: right;">
       <form name="pesquisar-cliente" action="../metodo/cliente/pesquisar-cliente.php" method="POST">
-        <input type="text" name="pesquisar-cliente" maxlength="20" size="15" placeholder="Busca Rápida...">
-        <button type="submit" class="btn btn-primary">Procurar</button>
+        <input type="text" name="pesq-cliente" maxlength="20" size="15" placeholder="Busca Rápida...">
+        <input type="submit" onclick="JavaScript:return validateSearch();" value="Procurar" />
       </form>
     </div>
   </div>
@@ -92,5 +92,15 @@
     }
   ?>
 </body>
-
 </html>
+
+<script type="text/javascript">
+  function validateSearch() {
+    var a=document.forms["pesquisar-cliente"]["pesq-cliente"].value;
+
+    if (a=="") {
+      alert("O campo não deve estar vazio.");
+      return (false);
+    }
+  }
+</script>

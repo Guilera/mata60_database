@@ -13,9 +13,9 @@
 		else if ($_POST["acao"]=="excluir-cliente") {
 			excluir_cliente();
 		}
-		else if ($_POST["acao"]=="Busca Avancada") {
-			pesquisarClientesAvancado();
-		}
+		//else if ($_POST["acao"]=="Busca Avancada") {
+		//	pesquisarClientesAvancado();
+		//}
 		//else voltarIndex();
 	}
 
@@ -37,14 +37,6 @@
 	 	$banco->close();
 	 	voltarClientes();
 	}
-
-	function inserir_varios_clientes($valor){
-		$banco = abrirBanco();
-		//$sql = "SELECT * FROM clientes WHERE nome_completo LIKE '%$valor_pesquisar%'";
-		$sql = "'%$valor%'";
-	 	$resultado = $banco->query($sql);
-	 	$banco->close();
-	 }
 
 	function alterar_cliente(){
 		$banco = abrirBanco();
@@ -74,56 +66,76 @@
 	 	return $grupo;
 	 }
 
-	// Nao funcionando:
-	//function pesquisarPessoas($valor_pesquisar){
-	//	$banco = abrirBanco();
-	//	$sql = "SELECT * FROM pessoa LIKE '%$valor_pesquisar%'";
-	//	$resultado1 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE nascimento LIKE '%$valor_pesquisar%'";
-	//	$resultado2 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE telefone LIKE '%$valor_pesquisar%'";
-	//	$resultado3 = $banco->query($sql);
-	//	$sql = "SELECT * FROM pessoa WHERE endereco LIKE '%$valor_pesquisar%'";
-	//	$resultado4 = $banco->query($sql);
-	//	$banco->close();
-	//	while ($row = mysqli_fetch_array($resultado1)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado2)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado3)) {
-	//		$grupo[] = $row;
-	//	}
-	//	while ($row = mysqli_fetch_array($resultado4)) {
-	//		$grupo[] = $row;
-	//	}
-	//	return $grupo;
-	//}
+	function pesquisarClientesAvancado($nome,$usuario,$pais,$dianasc,$mesnasc,$anonasc){
+	 	$banco = abrirBanco();
 
-	function pesquisarClientesAvancado($nome, $nascimento, $telefone, $endereco){
-		$banco = abrirBanco();
-		if(!empty($nome)) {
-			$sql = "SELECT * FROM clientes WHERE nome LIKE '%$nome%'";
-			$resultado = $banco->query($sql);
+	 	//$nome = $_POST["nome"];
+	 	//$usuario = $_POST["username"];
+	 	//$pais = $_POST["pais"];
+	 	//$dianasc = $_POST["dianasc"];
+	 	//$mesnasc = $_POST["mesnasc"];
+	 	//$anonasc = $_POST["anonasc"];
+	 	$count = 0;
+
+	 	$sql = "SELECT * FROM clientes INNER JOIN usuarios USING (usuario_id) WHERE ";
+	 	if($nome){$sql .= "nome_completo LIKE '%$nome%'"; $count=$count+1;}
+	 	if($usuario){
+	 		if($count>0){ $sql .= " AND"; }
+	 		$sql .= " username LIKE '%$usuario%'"; $count=$count+1;
+	 	}
+	 	if($pais){
+	 		if($count>0){ $sql .= " AND"; }
+	 		$sql .= " pais LIKE '%$pais%'"; $count=$count+1;
+	 	}
+	 	if($dianasc && $mesnasc && $anonasc){
+	 		if($count>0){ $sql .= " AND"; }
+	 		$data_nasc = $anonasc."-".$mesnasc."-".$dianasc;
+	 		$sql .= " data_nasc LIKE '".$data_nasc."'"; $count=$count+1;
+	 	}
+	 	elseif ($dianasc && $mesnasc) {
+	 		if($count>0){ $sql .= " AND"; }
+	 		$data_nasc = $mesnasc."-".$dianasc;
+	 		$sql .= " data_nasc LIKE '%".$data_nasc."'"; $count=$count+1;
+	 	}
+	 	elseif ($dianasc && $anonasc) {
+	 		if($count>0){ $sql .= " AND"; }
+	 		$data_nasc = $anonasc."'%".$dianasc;
+	 		$sql .= " data_nasc LIKE '".$data_nasc."'"; $count=$count+1;
+	 	}
+	 	elseif ($mesnasc && $anonasc) {
+	 		if($count>0){ $sql .= " AND"; }
+	 		$data_nasc = $anonasc."-".$mesnasc;
+	 		$sql .= " data_nasc LIKE '".$data_nasc."%'"; $count=$count+1;
+	 	}
+	 	elseif ($dianasc) {
+	 		if($count>0){ $sql .= " AND"; }
+	 		$sql .= " data_nasc LIKE '%".$dianasc."'"; $count=$count+1;
+	 	}
+	 	elseif ($mesnasc) {
+	 		if($count>0){ $sql .= " AND"; }
+	 		$sql .= " data_nasc LIKE '%".$mesnasc."%'"; $count=$count+1;
+	 	}
+	 	elseif ($anonasc) {
+	 		if($count>0){ $sql .= " AND"; }
+	 		$sql .= " AND data_nasc LIKE '".$anonasc."%'"; $count=$count+1;
+	 	}	 	
+		var_dump($sql);
+		$ok = $banco->query($sql);
+	 	if(!$ok){ ?>
+			<script type="text/javascript">
+				alert('Não foi possivel fazer pesquisa avançada de clientes.\n' + '<?php echo $banco->error; ?>');
+				location = "../../pages/clientes.php";
+			</script>
+			<?php
+			$banco->close();
+		} else {
+			$banco->close();
+			voltarClientes();
 		}
-		if(!empty($nascimento)) {
-			$sql = "SELECT * FROM clientes WHERE nascimento LIKE '%$nascimento%'";
-			$resultado = $banco->query($sql);
-		}
-		if(!empty($telefone)) {
-			$sql = "SELECT * FROM clientes WHERE telefone LIKE '%$telefone%'";
-			$resultado = $banco->query($sql);
-		}
-		if(!empty($endereco)) {
-			$sql = "SELECT * FROM clientes WHERE endereco LIKE '%$endereco%'";
-			$resultado = $banco->query($sql);
-		}
-		$banco->close();
-		while ($row = mysqli_fetch_array($resultado)) {
-			$grupo[] = $row;
-		}
-		return $grupo;
+
+	 	//$ok = $banco->query($sql);
+		//$banco->close();
+		//voltareventos();
 	}
 
 	function excluir_cliente(){

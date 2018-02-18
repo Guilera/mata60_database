@@ -35,8 +35,8 @@
     </div>
     <div class="box" style="float: right;">
       <form name="pesquisar-ponto_turistico" action="../metodo/ponto_turistico/pesquisar-ponto_turistico.php" method="POST">
-        <input type="text" name="pesquisar-ponto_turistico" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
-        <button type="submit" class="btn btn-primary">Procurar</button>
+        <input type="text" name="pesq-ponto_turistico" class="form-control" maxlength="20" size="15" placeholder="Busca Rápida...">
+        <input type="submit" onclick="JavaScript:return validateSearch();" value="Procurar" />
       </form>
     </div>
   </div>
@@ -90,3 +90,14 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+  function validateSearch() {
+    var a=document.forms["pesquisar-ponto_turistico"]["pesq-ponto_turistico"].value;
+
+    if (a=="") {
+      alert("O campo não deve estar vazio.");
+      return (false);
+    }
+  }
+</script>
