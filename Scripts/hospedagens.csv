@@ -1,63 +1,63 @@
 nome;tipo;descricao;valor_diaria;logradouro;bairro;numero;cidade_id;usuario_id
-Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Cassino, Sports Court;2000.00;Rua do meio;Centro;4;30;126
-Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA, Gym;2200.00;Rua da Praia;Litoral Leste;1;31;126
-Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA, Gym;2500.00;Avenida do Boiadeiro;Mata Escura;33;32;126
-Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA;1700.00;Rua Santista;Bairro da Baleia;2;33;126
-Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA;1700.00;Av Oceanica;Mar Verde;10;34;126
-Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA;2000.00;Av Paulista;Jardins;2;39;126
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. rainha elizabeth;ipanema;427;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. brazil;irajá;839;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. beira-mar;centro;334;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. atlantica;copacabana;11;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. atlantica;copacabana;123;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. atlantica;copacabana;545;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. nossa senhora de copacabana;copacabana;321;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. rio branco;centro;689;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. do estado;centro;43;39;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. do contorno;centro;675;11;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. presidente vargas;duque de caixias;46;19;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. manoel dias da silva;pituba;76;4;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. paulo VI;pituba;442;4;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;rua do timbo;caminho das arvores;326;4;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. otavio mangabeira;jardim de alah;867;4;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. otavio mangabeira;jardim de alah;786;4;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. adhemar de barros;ondina;97;4;131
-Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. paulista;jardins;76;39;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. rainha elizabeth;ipanema;427;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. brazil;irajá;839;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. beira-mar;centro;334;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. atlantica;copacabana;11;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. atlantica;copacabana;123;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. atlantica;copacabana;545;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. nossa senhora de copacabana;copacabana;321;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. rio branco;centro;689;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. do estado;centro;43;39;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. do contorno;centro;675;11;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. presidente vargas;duque de caixias;46;19;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. manoel dias da silva;pituba;76;4;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. paulo VI;pituba;442;4;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;rua do timbo;caminho das arvores;326;4;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. otavio mangabeira;jardim de alah;867;4;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. otavio mangabeira;jardim de alah;786;4;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. adhemar de barros;ondina;97;4;131
-Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. paulista;jardins;76;39;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. rainha elizabeth;ipanema;427;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. brazil;irajá;839;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. beira-mar;centro;334;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. atlantica;copacabana;11;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. atlantica;copacabana;123;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. atlantica;copacabana;545;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. nossa senhora de copacabana;copacabana;321;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. rio branco;centro;689;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. do estado;centro;43;39;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. do contorno;centro;675;11;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. presidente vargas;duque de caixias;46;19;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. manoel dias da silva;pituba;76;4;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. paulo VI;pituba;442;4;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;rua do timbo;caminho das arvores;326;4;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. otavio mangabeira;jardim de alah;867;4;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. otavio mangabeira;jardim de alah;786;4;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. adhemar de barros;ondina;97;4;131
-Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. paulista;jardins;76;39;131
-Praia Feliz;Camping;Capacity to 30 tents, 5 Bathroom;60.00;Rua 2;Diogo;3;6;128
-Porto das Palmeiras Hostel;Hostel;Capacity for 10 people, 3 Bathroom, community TV, Breakfast, Open Kitchen;100.00;rua Dra. praguer froes;barra;97;4;127
+Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Cassino, Sports Court;2000.00;Rua do meio;Centro;4;30;128
+Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA, Gym;2200.00;Rua da Praia;Litoral Leste;1;31;128
+Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA, Gym;2500.00;Avenida do Boiadeiro;Mata Escura;33;32;128
+Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA;1700.00;Rua Santista;Bairro da Baleia;2;33;128
+Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA;1700.00;Av Oceanica;Mar Verde;10;34;128
+Galaxy Resort;Resort;Cable Tv, Air Conditioning, Refrigerator in Room, Minibar, Breakfast, Room Service, Dry Cleaning, Bar/Lounge, Sports Court, Heated Pool, SPA;2000.00;Av Paulista;Jardins;2;39;128
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. rainha elizabeth;ipanema;427;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. brazil;irajá;839;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. beira-mar;centro;334;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. atlantica;copacabana;11;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. atlantica;copacabana;123;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. atlantica;copacabana;545;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. nossa senhora de copacabana;copacabana;321;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. rio branco;centro;689;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. do estado;centro;43;39;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. do contorno;centro;675;11;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. presidente vargas;duque de caixias;46;19;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. manoel dias da silva;pituba;76;4;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. paulo VI;pituba;442;4;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;rua do timbo;caminho das arvores;326;4;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. otavio mangabeira;jardim de alah;867;4;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. otavio mangabeira;jardim de alah;786;4;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. adhemar de barros;ondina;97;4;133
+Big Hotel;Single;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;150.00;av. paulista;jardins;76;39;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. rainha elizabeth;ipanema;427;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. brazil;irajá;839;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. beira-mar;centro;334;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. atlantica;copacabana;11;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. atlantica;copacabana;123;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. atlantica;copacabana;545;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. nossa senhora de copacabana;copacabana;321;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. rio branco;centro;689;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. do estado;centro;43;39;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. do contorno;centro;675;11;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. presidente vargas;duque de caixias;46;19;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. manoel dias da silva;pituba;76;4;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. paulo VI;pituba;442;4;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;rua do timbo;caminho das arvores;326;4;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. otavio mangabeira;jardim de alah;867;4;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. otavio mangabeira;jardim de alah;786;4;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. adhemar de barros;ondina;97;4;133
+Big Hotel;Double;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;275.00;av. paulista;jardins;76;39;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. rainha elizabeth;ipanema;427;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. brazil;irajá;839;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. beira-mar;centro;334;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. atlantica;copacabana;11;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. atlantica;copacabana;123;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. atlantica;copacabana;545;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. nossa senhora de copacabana;copacabana;321;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. rio branco;centro;689;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. do estado;centro;43;39;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. do contorno;centro;675;11;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. presidente vargas;duque de caixias;46;19;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. manoel dias da silva;pituba;76;4;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. paulo VI;pituba;442;4;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;rua do timbo;caminho das arvores;326;4;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. otavio mangabeira;jardim de alah;867;4;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. otavio mangabeira;jardim de alah;786;4;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. adhemar de barros;ondina;97;4;133
+Big Hotel;Triple;Cable Tv, Air Conditioning, Refrigerator in Room, Breakfast, Room Service;350.00;av. paulista;jardins;76;39;133
+Praia Feliz;Camping;Capacity to 30 tents, 5 Bathroom;60.00;Rua 2;Diogo;3;6;130
+Porto das Palmeiras Hostel;Hostel;Capacity for 10 people, 3 Bathroom, community TV, Breakfast, Open Kitchen;100.00;rua Dra. praguer froes;barra;97;4;129
