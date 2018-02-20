@@ -22,11 +22,11 @@
         <input type="submit" value="Adicionar Anunciante" name="inserir-anunciante" /> 
      </form>
     </div>
-    <div class="box">
+    <!--<div class="box">
      <form name="inserir" action="../metodo/anunciante/busca-avancada-anunciante.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
-    </div>
+    </div> -->
     <div class="box">
      <form name="voltar" action="../">
         <input type="submit" value="Menu" />

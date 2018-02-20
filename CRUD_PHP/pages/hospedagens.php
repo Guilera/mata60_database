@@ -23,11 +23,11 @@
         <input type="submit" value="Adicionar Hospedagem" name="inserir" /> 
      </form>
     </div>
-    <div class="box">
+    <!--<div class="box">
      <form name="inserir" action="../metodo/hospedagem/busca-avancada-hospedagem.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
-    </div>
+    </div>-->
     <div class="box">
      <form name="voltar" action="../">
         <input type="submit" value="Menu" />
