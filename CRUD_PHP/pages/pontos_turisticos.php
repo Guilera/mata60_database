@@ -23,11 +23,11 @@
         <input type="submit" value="Adicionar Ponto Turístico" name="inserir" /> 
      </form>
     </div>
-    <div class="box">
+    <!--<div class="box">
      <form name="busca-avancada-ponto_turistico" action="../metodo/ponto_turistico/busca-avancada-ponto_turistico.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
-    </div>
+    </div>-->
     <div class="box">
      <form name="voltar" action="../">
         <input type="submit" value="Menu" />

@@ -22,11 +22,11 @@
         <input type="submit" value="Adicionar cidade" name="inserir-cidade" /> 
      </form>
     </div>
-    <div class="box">
+    <!--<div class="box">
      <form name="inserir" action="../metodo/cidade/busca-avancada-cidade.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
-    </div>
+    </div>-->
     <div class="box">
      <form name="voltar" action="../">
         <input type="submit" value="Menu" />

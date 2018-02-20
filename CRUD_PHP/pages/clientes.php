@@ -22,11 +22,11 @@
         <input type="submit" value="Adicionar Cliente" name="inserir-cliente" /> 
      </form>
     </div>
-    <div class="box">
+    <!--<div class="box">
      <form name="busca-avancada-cliente" action="../metodo/cliente/busca-avancada-cliente.php" method="POST">
         <input type="submit" value="Busca Avançada" /> 
      </form>
-    </div>
+    </div>-->
     <div class="box">
      <form name="voltar" action="../">
         <input type="submit" value="Menu" />
@@ -35,7 +35,7 @@
     <div class="box" style="float: right;">
       <form name="pesquisar-cliente" action="../metodo/cliente/pesquisar-cliente.php" method="POST">
         <input type="text" name="pesq-cliente" maxlength="20" size="15" placeholder="Busca Rápida...">
-        <input type="submit" onclick="JavaScript:return validateSearch();" value="Procurar" />
+        <input type="submit" value="Procurar" />
       </form>
     </div>
   </div>
