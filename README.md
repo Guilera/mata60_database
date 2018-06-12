@@ -1,7 +1,9 @@
 # Trabalho Prático de de MATA60 - BANCO DE DADOS
 
 Banco de dados para uma aplicação de turismo voltada para os turistas internacionais.
+
 Utilização de dados reais divulgados pelo ministério do turismo e dados fictícios criados para a população do banco.
+
 Exemplificação de CRUD em PHP
 
 ## Artefatos
